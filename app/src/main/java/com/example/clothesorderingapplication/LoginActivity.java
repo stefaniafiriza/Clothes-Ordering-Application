@@ -16,13 +16,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Register=findViewById(R.id.sendToSignUp);
+        Register = findViewById(R.id.sendToSignUp);
 
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent indent = new Intent(LoginActivity.this, RegistrationActivity.class);
-                startActivity(indent);
+                startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
             }
         });
     }
