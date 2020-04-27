@@ -51,7 +51,7 @@
     <string name="todo19">TODO19</string>
     <string name="todo20">TODO20</string>
     <string name="todo21">TODO21</string>
-    <string name="nows">NOWS</string>
+    <string name="news">NEWS</string>
     <string name="all_products">All products</string>
     <string name="jeans">JEANS</string>
     <string name="dresses">DRESSES</string>
@@ -64,4 +64,8 @@
     <string name="bag">BAG</string>
     <string name="belt">BELT</string>
     <string name="scarf">SCARF</string>
+    <string name="news_btn">News</string>
+    <string name="accessory_btn">ACCESSORY</string>
+    <string name="items_btn">ITEMS</string>
+    <string name="sale_btn">SALE</string>
 </resources>
