@@ -1,0 +1,29 @@
+[33mcommit 0431b59ef1b6bb522dba91a4a2659267c89feb57[m[33m ([m[1;36mHEAD -> [m[1;32mLogin[m[33m, [m[1;31morigin/Login[m[33m, [m[1;32mRegistration[m[33m)[m
+Author: Stefania Firiza <48450919+stefaniafiriza@users.noreply.github.com>
+Date:   Fri Apr 24 20:44:01 2020 +0300
+
+    Create connection with the button of Registration on the main page COA-37 fixed issue
+
+[33mcommit 2d5c98c6d880ffeecf7c1f2bba86cf61bd0d10e9[m
+Author: Stefania Firiza <48450919+stefaniafiriza@users.noreply.github.com>
+Date:   Fri Apr 24 20:32:13 2020 +0300
+
+    Create connection with the registration page COA-27 fixed issue
+
+[33mcommit 662607100212063f02fb68e28768622274dd992d[m
+Author: Stefania Firiza <48450919+stefaniafiriza@users.noreply.github.com>
+Date:   Fri Apr 24 20:06:09 2020 +0300
+
+    Create an interface COA-33 fixed issue
+
+[33mcommit 67c827399cd092109449c6105efe8654e697f4e8[m
+Author: Stefania Firiza <48450919+stefaniafiriza@users.noreply.github.com>
+Date:   Fri Apr 24 18:21:33 2020 +0300
+
+    Create connection with the button of Login on the main page COA-26 fixed issue
+
+[33mcommit e832e1424a1bfe1848074faba2f9c13a53352477[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Stefania Firiza <48450919+stefaniafiriza@users.noreply.github.com>
+Date:   Fri Apr 24 14:44:13 2020 +0300
+
+    Friendly interface COA-14 fixed issue
