@@ -68,4 +68,7 @@
     <string name="accessory_btn">ACCESSORY</string>
     <string name="items_btn">ITEMS</string>
     <string name="sale_btn">SALE</string>
+    <string name="_12">12</string>
+    <string name="_13">12</string>
+    <string name="heart">heart</string>
 </resources>
