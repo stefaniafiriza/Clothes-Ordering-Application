@@ -1,5 +1,6 @@
 package com.example.clothesorderingapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -48,6 +49,12 @@ public class HomeActivity extends AppCompatActivity {
             View view = menuItem_basket.getActionView();
             badgeCounter = view.findViewById(R.id.badge_counter);
             badgeCounter.setText(String.valueOf(basketItems));
+            menuItem_basket.getActionView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onOptionsItemSelected(menuItem_basket);
+                }
+            });
         }
 
         if (favoriteItems == 0) {
@@ -60,5 +67,15 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.notification:
+                startActivity(new Intent(HomeActivity.this, ShopBasketActivity.class));
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
