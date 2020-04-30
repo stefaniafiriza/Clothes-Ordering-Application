@@ -8,39 +8,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity {
+public class NewsActivity extends AppCompatActivity {
 
     protected MenuItem menuItem_basket, menuItem_favorite;
     protected TextView badgeCounter;
     protected int basketItems = 0;
     protected int favoriteItems = 3;
-    protected Button Products;
-    protected Button News;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        Products = findViewById(R.id.products);
-        News = findViewById(R.id.for_news);
-
-        Products.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, SearchActivity.class));
-            }
-        });
-
-        News.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, NewsActivity.class));
-            }
-        });
+        setContentView(R.layout.activity_news);
     }
 
     @Override
@@ -82,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.notification:
-                startActivity(new Intent(HomeActivity.this, ShopBasketActivity.class));
+                startActivity(new Intent(NewsActivity.this, ShopBasketActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

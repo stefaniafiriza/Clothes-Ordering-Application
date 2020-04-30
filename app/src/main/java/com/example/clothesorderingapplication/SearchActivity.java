@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SearchActivity extends AppCompatActivity {
@@ -16,11 +17,21 @@ public class SearchActivity extends AppCompatActivity {
     protected TextView badgeCounter;
     protected int basketItems = 0;
     protected int favoriteItems = 3;
+    protected Button News;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        News = findViewById(R.id.btn1);
+
+        News.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SearchActivity.this,NewsActivity.class));
+            }
+        });
     }
 
     @Override

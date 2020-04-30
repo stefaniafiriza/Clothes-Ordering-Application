@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF"
+    tools:context=".NewsActivity">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="@string/magazzino"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+
+    <SearchView
+        android:id="@+id/search1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bar_search"
+        android:queryHint="ITEMS SEARCH"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        app:layout_constraintVertical_bias="0.049" />
+
+    <View
+        android:id="@+id/l1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintEnd_toEndOf="@+id/search1"
+        app:layout_constraintStart_toStartOf="@+id/search1"
+        app:layout_constraintTop_toBottomOf="@+id/search1"
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/l1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/r1"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/r1" />
+
+                <ImageView
+                    android:id="@+id/r2"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/r1"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/r2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/r3"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/r3" />
+
+                <ImageView
+                    android:id="@+id/r4"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/r3"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/r4" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/r5"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/r5" />
+
+                <ImageView
+                    android:id="@+id/b1"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/r5"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/b1" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/b2"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/b2" />
+
+                <ImageView
+                    android:id="@+id/b3"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/b2"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/b3" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/f2"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/f2" />
+
+                <ImageView
+                    android:id="@+id/f3"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/f2"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/f3" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/f4"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/f4" />
+
+                <ImageView
+                    android:id="@+id/f5"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/f4"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/f5" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/b4"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/b4" />
+
+                <ImageView
+                    android:id="@+id/b5"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/b4"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/b5" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/b6"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/b6" />
+
+                <ImageView
+                    android:id="@+id/f1"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/b6"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/f1" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/t1"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/t1" />
+
+                <ImageView
+                    android:id="@+id/t2"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/t1"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/t2" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/t3"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/t3" />
+
+                <ImageView
+                    android:id="@+id/t4"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/t3"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/t4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/t5"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/t5" />
+
+                <ImageView
+                    android:id="@+id/t6"
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_toEndOf="@+id/t5"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/t6" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
