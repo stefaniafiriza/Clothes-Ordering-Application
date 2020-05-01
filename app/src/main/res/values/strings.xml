@@ -73,4 +73,6 @@
     <string name="heart">heart</string>
     <string name="back">BACK</string>
     <string name="shopping_cart_is_empty">Shopping cart is empty</string>
+    <string name="_30_eur">30 eur</string>
+    <string name="_25_eur">25 eur</string>
 </resources>
