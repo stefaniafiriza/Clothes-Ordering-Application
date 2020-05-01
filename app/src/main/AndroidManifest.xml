@@ -11,8 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".NewsActivity"
+        <activity android:name=".AccessoryActivity"
             android:label=""/>
+        <activity
+            android:name=".NewsActivity"
+            android:label="" />
         <activity
             android:name=".ShopBasketActivity"
             android:label="" />
