@@ -19,6 +19,7 @@ public class SearchActivity extends AppCompatActivity {
     protected int favoriteItems = 3;
     protected Button News;
     protected Button Accessory;
+    protected Button Sale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class SearchActivity extends AppCompatActivity {
 
         News = findViewById(R.id.btn1);
         Accessory=findViewById(R.id.btn2);
+        Sale=findViewById(R.id.btn4);
 
         News.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +41,13 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SearchActivity.this,AccessoryActivity.class));
+            }
+        });
+
+        Sale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SearchActivity.this,SaleActivity.class));
             }
         });
     }
