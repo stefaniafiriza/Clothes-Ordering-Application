@@ -71,4 +71,6 @@
     <string name="_12">12</string>
     <string name="_13">12</string>
     <string name="heart">heart</string>
+    <string name="back">BACK</string>
+    <string name="shopping_cart_is_empty">Shopping cart is empty</string>
 </resources>

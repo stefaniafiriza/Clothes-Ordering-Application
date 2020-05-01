@@ -11,8 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SearchActivity"
+        <activity android:name=".SaleActivity"
             android:label=""/>
+        <activity
+            android:name=".AccessoryActivity"
+            android:label="" />
+        <activity
+            android:name=".NewsActivity"
+            android:label="" />
+        <activity
+            android:name=".ShopBasketActivity"
+            android:label="" />
+        <activity
+            android:name=".SearchActivity"
+            android:label="" />
         <activity
             android:name=".HomeActivity"
             android:label="" />
