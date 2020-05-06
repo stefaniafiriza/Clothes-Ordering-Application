@@ -78,4 +78,7 @@
     <string name="total">Total :</string>
     <string name="place_order">Place Order</string>
     <string name="cart">CART</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_quantity">Product Quantity</string>
+    <string name="product_price">Product Price</string>
 </resources>
