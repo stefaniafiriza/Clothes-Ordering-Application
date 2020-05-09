@@ -101,4 +101,21 @@ public class API {
         String url = createURL("/api/search", parametersToURL(new String[]{"name"}, new String[]{product}));
         call(url, searchCallback);
     }
+
+    public void createShoppingCartID(String userID, ICallback shoppingCartCallback) {
+        String url = createURL("/api/createShoppingCartID", parametersToURL(new String[]{"userID"}, new String[]{userID}));
+        call(url, shoppingCartCallback);
+    }
+
+    public void addToCart(String cartID, String productID, String amount, ICallback addToCartCallback){
+        String url = createURL("/api/addToCart", parametersToURL(new String[]{"cartID", "productID", "amount"}, new String[]{cartID, productID, amount}));
+        call(url, addToCartCallback);
+    }
+
+    public void removeFromCart(String cartID, String productID, String amount, ICallback removeFromCartCallback){
+        String url = createURL("/api/removeFromCart", parametersToURL(new String[]{"cartID", "productID", "amount"}, new String[]{cartID, productID, amount}));
+        call(url, removeFromCartCallback);
+    }
+
+
 }
