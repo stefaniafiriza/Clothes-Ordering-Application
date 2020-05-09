@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
 import com.example.clothesorderingapplication.api.API;
 import com.example.clothesorderingapplication.api.Utils;
 import com.example.clothesorderingapplication.api.interfaces.ICallback;
@@ -64,6 +65,11 @@ public class RegistrationActivity extends AppCompatActivity {
                                 }catch (Exception ignored) {
                                     // error
                                 }
+
+                            }
+
+                            @Override
+                            public void onError(VolleyError error, Context context) {
 
                             }
                         }

@@ -57,24 +57,28 @@ public class API {
         return null;
     }
 
+    private void call(String url, final ICallback callback){
+        queue.add(new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        callback.onFinish(response, context);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        callback.onError(error, context);
+                    }
+                })
+        );
+    }
+
     public void login(String username, String password, final ICallback loginCallback){
         String url = createURL("/api/login",
                 parametersToURL(new String[]{"username", "password"},
                                 new String[]{username, getHashedPassword(password)}));
-            queue.add(new StringRequest(Request.Method.GET, url,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            loginCallback.onFinish(response, context);
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            // error
-                        }
-                    })
-            );
+        call(url, loginCallback);
     }
 
     public void register(String username, String password, String name, String email, String phoneNumber, String codeManager,final ICallback registerCallback) {
@@ -88,20 +92,9 @@ public class API {
                 new String[]{"username", "password", "name", "email", "type", "phoneNumber", "codeManager"},
                 new String[]{username, getHashedPassword(password), name, email, type, phoneNumber, codeManager}
         ));
-        queue.add(new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        registerCallback.onFinish(response, context);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                    }
-                })
-        );
+
+        call(url, registerCallback);
+
     }
 
 }

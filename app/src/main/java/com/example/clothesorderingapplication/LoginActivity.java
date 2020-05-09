@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
 import com.example.clothesorderingapplication.api.API;
 import com.example.clothesorderingapplication.api.Utils;
 import com.example.clothesorderingapplication.api.interfaces.ICallback;
@@ -58,6 +59,11 @@ public class LoginActivity extends AppCompatActivity {
                                 // go to next activity
 
                                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            }
+
+                            @Override
+                            public void onError(VolleyError error, Context context) {
+                                // error
                             }
                         }
                 );
