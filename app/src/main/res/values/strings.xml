@@ -73,4 +73,12 @@
     <string name="heart">heart</string>
     <string name="back">BACK</string>
     <string name="shopping_cart_is_empty">Shopping cart is empty</string>
+    <string name="_30_eur">30 eur</string>
+    <string name="_25_eur">25 eur</string>
+    <string name="total">Total :</string>
+    <string name="place_order">Place Order</string>
+    <string name="cart">CART</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_quantity">Product Quantity</string>
+    <string name="product_price">Product Price</string>
 </resources>
