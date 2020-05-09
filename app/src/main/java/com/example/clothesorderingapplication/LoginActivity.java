@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 api.login(
-                        Email.getText().toString(),
+                        Username.getText().toString(),
                         Password.getText().toString(),
                         new ICallback() {
                             @Override
