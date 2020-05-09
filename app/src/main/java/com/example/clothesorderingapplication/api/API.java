@@ -57,6 +57,25 @@ public class API {
         return null;
     }
 
+    public void login(String username, String password, final ICallback loginCallback){
+        String url = createURL("/api/login",
+                parametersToURL(new String[]{"username", "password"},
+                                new String[]{username, getHashedPassword(password)}));
+            queue.add(new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            loginCallback.onFinish(response, context);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // error
+                        }
+                    })
+            );
+    }
 
     public void register(String username, String password, String name, String email, String phoneNumber, String codeManager,final ICallback registerCallback) {
         String type = Integer.toString(Utils.typeToInt(Type.CUSTOMER));
