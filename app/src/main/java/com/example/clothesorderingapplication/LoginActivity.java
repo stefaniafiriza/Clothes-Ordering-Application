@@ -13,7 +13,7 @@ public class LoginActivity extends AppCompatActivity {
 
     protected TextView Register;
     protected Button Login;
-    protected EditText Email;
+    protected EditText Username;
     protected EditText Password;
 
     @Override
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Login =  findViewById(R.id.btn_login);
-        Email =  findViewById(R.id.email);
+        Username =  findViewById(R.id.use);
         Password =  findViewById(R.id.password);
         Register = findViewById(R.id.sendToSignUp);
 
