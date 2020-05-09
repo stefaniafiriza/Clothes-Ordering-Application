@@ -66,7 +66,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/news"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -92,6 +92,51 @@
                     android:layout_toEndOf="@+id/r1"
                     android:contentDescription="@string/todo14"
                     android:src="@drawable/r2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/price1"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_toEndOf="@+id/add1"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_toEndOf="@+id/price2"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -123,6 +168,51 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/price3"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_toEndOf="@+id/add3"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_toEndOf="@+id/price4"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal">
@@ -144,6 +234,51 @@
                     android:layout_toEndOf="@+id/r5"
                     android:contentDescription="@string/todo14"
                     android:src="@drawable/b1" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/price5"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_toEndOf="@+id/add5"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_toEndOf="@+id/price6"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
 
             </RelativeLayout>
 
@@ -177,6 +312,51 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/price7"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_toEndOf="@+id/add7"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_toEndOf="@+id/price8"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal">
@@ -198,6 +378,51 @@
                     android:layout_toEndOf="@+id/f2"
                     android:contentDescription="@string/todo14"
                     android:src="@drawable/f3" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/price9"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_toEndOf="@+id/add9"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_toEndOf="@+id/price10"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
 
             </RelativeLayout>
 
@@ -231,6 +456,51 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/price11"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_toEndOf="@+id/add11"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price12"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal">
@@ -252,6 +522,52 @@
                     android:layout_toEndOf="@+id/b4"
                     android:contentDescription="@string/todo14"
                     android:src="@drawable/b5" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price13"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/add13"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price14"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
 
             </RelativeLayout>
 
@@ -285,6 +601,52 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price15"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/add15"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price16"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal">
@@ -312,9 +674,56 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price17"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/add17"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price18"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="TooManyViews">
 
                 <ImageView
                     android:id="@+id/t3"
@@ -333,6 +742,52 @@
                     android:layout_toEndOf="@+id/t3"
                     android:contentDescription="@string/todo14"
                     android:src="@drawable/t4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price19"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/add19"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price20"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
 
             </RelativeLayout>
 
@@ -360,6 +815,52 @@
                     android:layout_toEndOf="@+id/t5"
                     android:contentDescription="@string/todo14"
                     android:src="@drawable/t6" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/_25_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price21"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
+
+                <TextView
+                    android:id="@+id/price22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/add21"
+                    android:text="@string/_30_eur"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/add22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/price22"
+                    android:background="@drawable/bnt_bg_white"
+                    android:contentDescription="@string/todo14"
+                    android:src="@drawable/ic_add_black" />
 
             </RelativeLayout>
 
