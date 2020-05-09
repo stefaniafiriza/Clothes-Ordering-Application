@@ -97,4 +97,8 @@ public class API {
 
     }
 
+    public void search(String product, final ICallback searchCallback){
+        String url = createURL("/api/search", parametersToURL(new String[]{"name"}, new String[]{product}));
+        call(url, searchCallback);
+    }
 }
