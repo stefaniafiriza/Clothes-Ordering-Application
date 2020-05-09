@@ -117,5 +117,16 @@ public class API {
         call(url, removeFromCartCallback);
     }
 
+    public void addProduct(String name, String type, String size, String price, String stock, String description, ICallback addProductCallback){
+        String url = createURL("/api/addProduct", parametersToURL(
+                new String[]{"name", "type", "size", "price", "stock", "description"},
+                new String[]{name, type, size, price, stock, description}));
+        call(url, addProductCallback);
+    }
+
+    public void getProducts(ICallback getProductsCallback){
+        String url = createURL("/api/getProducts", parametersToURL(new String[]{}, new String[]{}));
+        call(url, getProductsCallback);
+    }
 
 }
