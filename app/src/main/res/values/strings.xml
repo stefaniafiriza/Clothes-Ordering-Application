@@ -82,4 +82,6 @@
     <string name="product_quantity">Product Quantity</string>
     <string name="product_price">Product Price</string>
     <string name="username1">Username</string>
+    <string name="items_for_news">ITEMS FOR NEWS</string>
+    <string name="items_for_accessory">ITEMS FOR ACCESSORY</string>
 </resources>
