@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             @Override
                             public void onError(VolleyError error, Context context) {
-                                // error
+                                Toast.makeText(getApplicationContext(), "Cannot connect to the server.", Toast.LENGTH_SHORT).show();
                             }
                         }
                 );

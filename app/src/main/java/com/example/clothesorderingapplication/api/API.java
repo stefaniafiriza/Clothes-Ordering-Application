@@ -102,31 +102,36 @@ public class API {
         call(url, searchCallback);
     }
 
-    public void createShoppingCartID(String userID, ICallback shoppingCartCallback) {
+    public void createShoppingCartID(String userID,final ICallback shoppingCartCallback) {
         String url = createURL("/api/createShoppingCartID", parametersToURL(new String[]{"userID"}, new String[]{userID}));
         call(url, shoppingCartCallback);
     }
 
-    public void addToCart(String cartID, String productID, String amount, ICallback addToCartCallback){
+    public void addToCart(String cartID, String productID, String amount,final ICallback addToCartCallback){
         String url = createURL("/api/addToCart", parametersToURL(new String[]{"cartID", "productID", "amount"}, new String[]{cartID, productID, amount}));
         call(url, addToCartCallback);
     }
 
-    public void removeFromCart(String cartID, String productID, String amount, ICallback removeFromCartCallback){
+    public void removeFromCart(String cartID, String productID, String amount,final ICallback removeFromCartCallback){
         String url = createURL("/api/removeFromCart", parametersToURL(new String[]{"cartID", "productID", "amount"}, new String[]{cartID, productID, amount}));
         call(url, removeFromCartCallback);
     }
 
-    public void addProduct(String name, String type, String size, String price, String stock, String description, ICallback addProductCallback){
+    public void addProduct(String name, String type, String size, String price, String stock, String description,final ICallback addProductCallback){
         String url = createURL("/api/addProduct", parametersToURL(
                 new String[]{"name", "type", "size", "price", "stock", "description"},
                 new String[]{name, type, size, price, stock, description}));
         call(url, addProductCallback);
     }
 
-    public void getProducts(ICallback getProductsCallback){
+    public void getProducts(final ICallback getProductsCallback){
         String url = createURL("/api/getProducts", parametersToURL(new String[]{}, new String[]{}));
         call(url, getProductsCallback);
     }
 
+
+    public void verifyUser(String username,final ICallback verifyUserCallback){
+        String url = createURL("/api/verifyUser", parametersToURL(new String[]{"username"}, new String[] {username}));
+        call(url, verifyUserCallback);
+    }
 }
