@@ -84,4 +84,5 @@
     <string name="username1">Username</string>
     <string name="items_for_news">ITEMS FOR NEWS</string>
     <string name="items_for_accessory">ITEMS FOR ACCESSORY</string>
+    <string name="items_for_sale">ITEMS FOR SALE</string>
 </resources>
