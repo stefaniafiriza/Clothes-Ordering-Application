@@ -11,32 +11,56 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SaleActivity"
-            android:label=""/>
+        <activity
+            android:name=".ManagerActivity"
+            android:label=""
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SaleActivity"
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AccessoryActivity"
-            android:label="" />
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NewsActivity"
-            android:label="" />
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ShopBasketActivity"
-            android:label="" />
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SearchActivity"
-            android:label="" />
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
-            android:label="" />
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RegistrationActivity"
-            android:label="" />
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
-            android:label="" />
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/motto">
+            android:configChanges="orientation"
+            android:label="@string/motto"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
