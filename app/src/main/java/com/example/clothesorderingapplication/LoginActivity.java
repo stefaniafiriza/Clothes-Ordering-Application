@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     protected EditText Password;
     protected Switch aSwitch;
     protected EditText Manager;
+    protected TextView Facebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,14 @@ public class LoginActivity extends AppCompatActivity {
         Register = findViewById(R.id.sendToSignUp);
         aSwitch = findViewById(R.id.switch2);
         Manager = findViewById(R.id.code);
+        Facebook = findViewById(R.id.facebook_login);
+
+        Facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, FacebookActivity.class));
+            }
+        });
 
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
