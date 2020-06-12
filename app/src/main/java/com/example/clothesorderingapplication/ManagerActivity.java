@@ -2,7 +2,10 @@ package com.example.clothesorderingapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -16,6 +19,7 @@ public class ManagerActivity extends AppCompatActivity {
     protected ImageButton[] removeBnt = new ImageButton[55];
     protected ArrayList<ImageButton> addButton = new ArrayList<>();
     protected ArrayList<ImageButton> removeButton = new ArrayList<>();
+    protected MenuItem menuLogOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,5 +160,23 @@ public class ManagerActivity extends AppCompatActivity {
             });
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.manager_menu, menu);
+        menuLogOut = menu.findItem(R.id.log_out);
+
+        menuLogOut.setActionView(R.layout.log_out);
+        menuLogOut.getActionView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ManagerActivity.this, LoginActivity.class));
+                Toast.makeText(ManagerActivity.this,"Successful log out", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
     }
 }

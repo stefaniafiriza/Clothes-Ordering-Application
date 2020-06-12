@@ -2,6 +2,7 @@ package com.example.clothesorderingapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.example.clothesorderingapplication.api.API;
@@ -24,6 +26,12 @@ public class RegistrationActivity extends AppCompatActivity {
     protected EditText ManagerCode;
     protected Switch aSwitch;
     protected Button Register;
+    protected ProgressDialog loadingBar;
+    protected EditText name;
+    protected EditText phoneNumber;
+    protected EditText emailAddress;
+    protected EditText user;
+    protected EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,49 +42,65 @@ public class RegistrationActivity extends AppCompatActivity {
         ManagerCode = findViewById(R.id.managercode);
         aSwitch = findViewById(R.id.switch1);
         Register = findViewById(R.id.btn_sign_up);
+        name = findViewById(R.id.Name);
+        phoneNumber = findViewById(R.id.phoneNumber);
+        emailAddress = findViewById(R.id.mail);
+        user = findViewById(R.id.username);
+        password = findViewById(R.id.generatePassword);
+        loadingBar = new ProgressDialog(this);
 
         final API api = new API(this);
 
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                api.register(
-                        ((EditText) findViewById(R.id.username)).getText().toString(),
-                        ((EditText) findViewById(R.id.generatePassword)).getText().toString(),
-                        ((EditText) findViewById(R.id.Name)).getText().toString(),
-                        ((EditText) findViewById(R.id.mail)).getText().toString(),
-                        ((EditText) findViewById(R.id.phoneNumber)).getText().toString(),
-                        ManagerCode.getText().toString(),
-                        new ICallback() {
-                            @Override
-                            public void onFinish(String response, Context context) {
-                                JSONObject resp = Utils.responseToJSON(response);
-                                try{
-                                    String type = resp.getJSONObject("result").getString("type");
-                                    if(type.equals("error")){
+                if (user.getText().toString().isEmpty() || password.getText().toString().isEmpty() || name.getText().toString().isEmpty() || emailAddress.getText().toString().isEmpty() || phoneNumber.getText().toString().isEmpty()) {
+                    Toast.makeText(RegistrationActivity.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
+                } else {
+                    loadingBar.setTitle("Create Account");
+                    loadingBar.setMessage("Please wait, while we are checking the credentials.");
+                    loadingBar.setCanceledOnTouchOutside(false);
+                    loadingBar.show();
+
+                    api.register(
+                            ((EditText) findViewById(R.id.username)).getText().toString(),
+                            ((EditText) findViewById(R.id.generatePassword)).getText().toString(),
+                            ((EditText) findViewById(R.id.Name)).getText().toString(),
+                            ((EditText) findViewById(R.id.mail)).getText().toString(),
+                            ((EditText) findViewById(R.id.phoneNumber)).getText().toString(),
+                            ManagerCode.getText().toString(),
+                            new ICallback() {
+                                @Override
+                                public void onFinish(String response, Context context) {
+                                    JSONObject resp = Utils.responseToJSON(response);
+                                    try {
+                                        String type = resp.getJSONObject("result").getString("type");
+                                        if (type.equals("error")) {
+                                            // error
+                                            return;
+                                        } else {
+                                            // successful
+                                            Toast.makeText(RegistrationActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+                                            loadingBar.dismiss();
+
+                                            startActivity(new Intent(RegistrationActivity.this,LoginActivity.class));
+                                        }
+
+                                    } catch (Exception ignored) {
                                         // error
-                                        return;
-                                    }
-                                    else{
-                                        // successful
-                                        return;
                                     }
 
-                                }catch (Exception ignored) {
-                                    // error
                                 }
 
-                            }
+                                @Override
+                                public void onError(VolleyError error, Context context) {
 
-                            @Override
-                            public void onError(VolleyError error, Context context) {
-
+                                }
                             }
-                        }
-                );
+                    );
+                }
             }
         });
-
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override

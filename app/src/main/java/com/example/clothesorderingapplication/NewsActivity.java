@@ -18,7 +18,7 @@ import java.util.List;
 
 public class NewsActivity extends AppCompatActivity {
 
-    protected MenuItem menuItem_basket, menuItem_favorite;
+    protected MenuItem menuItem_basket, menuItem_favorite,menuLogOut;
     protected TextView badgeCounter;
     protected int basketItems = 0;
     protected int favoriteItems = 3;
@@ -73,6 +73,7 @@ public class NewsActivity extends AppCompatActivity {
 
         menuItem_basket = menu.findItem(R.id.notification);
         menuItem_favorite = menu.findItem(R.id.favorite);
+        menuLogOut = menu.findItem(R.id.log_out);
 
         if (basketItems == 0) {
             menuItem_basket.setActionView(null);
@@ -98,6 +99,14 @@ public class NewsActivity extends AppCompatActivity {
             badgeCounter.setText(String.valueOf(favoriteItems));
         }
 
+        menuLogOut.setActionView(R.layout.log_out);
+        menuLogOut.getActionView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionsItemSelected(menuLogOut);
+            }
+        });
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -107,6 +116,9 @@ public class NewsActivity extends AppCompatActivity {
             case R.id.notification:
                 startActivity(new Intent(NewsActivity.this, ShopBasketActivity.class));
                 return true;
+            case R.id.log_out:
+                startActivity(new Intent(NewsActivity.this,LoginActivity.class));
+                Toast.makeText(NewsActivity.this,"Successful log out", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
