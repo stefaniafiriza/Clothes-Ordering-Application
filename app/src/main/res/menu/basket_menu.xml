@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/log_out"
+        android:actionLayout="@layout/log_out"
+        android:icon="@drawable/ic_exit_to_app_black"
+        android:title="@string/favorite"
+        app:showAsAction="always" />
     <item
         android:id="@+id/notification"
+        android:actionLayout="@layout/notification_badge"
         android:icon="@drawable/ic_shopping_basket"
         android:title="@string/basket"
-        app:showAsAction="ifRoom"
-        android:actionLayout="@layout/notification_badge"/>
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/favorite"
+        android:actionLayout="@layout/notification_favorite"
         android:icon="@drawable/ic_favorite_black"
         android:title="@string/favorite"
-        app:showAsAction="always"
-        android:actionLayout="@layout/notification_favorite"/>
+        app:showAsAction="always" />
 </menu>
