@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22427C"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".FacebookActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="100dp" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="244dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="85dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="250dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/pageHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="10dp"
+        android:layout_gravity="end"
+        android:text="@string/go_to_the_home_page"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/bnt_bg_blue"
+        android:drawableStart="@drawable/ic_chevron_left_white"/>
+
+</LinearLayout>

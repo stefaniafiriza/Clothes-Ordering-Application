@@ -85,4 +85,9 @@
     <string name="items_for_news">ITEMS FOR NEWS</string>
     <string name="items_for_accessory">ITEMS FOR ACCESSORY</string>
     <string name="items_for_sale">ITEMS FOR SALE</string>
+
+    <string name="facebook_app_id">1425571864295579</string>
+    <string name="fb_login_protocol_scheme">fb1425571864295579</string>
+    <string name="go_to_the_home_page">GO TO THE HOME PAGE</string>
+
 </resources>
