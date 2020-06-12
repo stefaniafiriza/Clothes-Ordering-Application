@@ -134,4 +134,19 @@ public class API {
         String url = createURL("/api/verifyUser", parametersToURL(new String[]{"username"}, new String[] {username}));
         call(url, verifyUserCallback);
     }
+
+    public void makeOrder(String cartID, final ICallback orderCallback){
+        String url = createURL("/api/order", parametersToURL(new String[]{"cartID"}, new String[] {cartID}));
+        call(url, orderCallback);
+    }
+
+    public void nextStepForOrder(String orderID, final ICallback nextStepCallback){
+        String url = createURL("/api/orderNextStep", parametersToURL(new String[]{"orderID"}, new String[]{orderID}));
+        call(url, nextStepCallback);
+    }
+
+    public void getOrderByUserID(String userID, final ICallback orderByUserIDCallback){
+        String url = createURL("/api/getOrderByUserID", parametersToURL(new String[]{"userID"}, new String[]{userID}));
+        call(url, orderByUserIDCallback);
+    }
 }
