@@ -89,5 +89,9 @@
     <string name="facebook_app_id">1425571864295579</string>
     <string name="fb_login_protocol_scheme">fb1425571864295579</string>
     <string name="go_to_the_home_page">GO TO THE HOME PAGE</string>
+    <string name="order_status">Order status</string>
+    <string name="the_order_was_successfully_registered">The order was successfully registered.</string>
+    <string name="in_2_3_working_days_the_courier_will_contact_you">In 2-3 working days the courier will contact you.</string>
+    <string name="back_to_the_home_page">Back to the home page</string>
 
 </resources>

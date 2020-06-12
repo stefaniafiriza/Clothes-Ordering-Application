@@ -56,4 +56,12 @@
         android:text="@string/place_order"
         android:textColor="#000000" />
 
+    <Button
+        android:id="@+id/btn_order_status"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/order_status"
+        android:textColor="#000000" />
+
 </RelativeLayout>
