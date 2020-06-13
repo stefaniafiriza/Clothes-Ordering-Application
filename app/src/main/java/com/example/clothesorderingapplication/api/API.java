@@ -149,4 +149,13 @@ public class API {
         String url = createURL("/api/getOrderByUserID", parametersToURL(new String[]{"userID"}, new String[]{userID}));
         call(url, orderByUserIDCallback);
     }
+
+    public void facebookLogin(String email, String id, String name, final ICallback fblogin){
+        String url = createURL("/api/facebooklogin", parametersToURL(new String[]{"email", "name", "id"}, new String[]{email, name, id}));
+        call(url, fblogin);
+    }
+    public void facebookRegister(String email, String id, String name, final ICallback fbregister){
+        String url = createURL("/api/facebookregister", parametersToURL(new String[]{"email", "name", "id"}, new String[]{email, name, id}));
+        call(url, fbregister);
+    }
 }

@@ -2,6 +2,7 @@ package com.example.clothesorderingapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,8 +11,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.clothesorderingapplication.api.API;
+import com.example.clothesorderingapplication.api.Utils;
+import com.example.clothesorderingapplication.api.interfaces.ICallback;
+import com.example.clothesorderingapplication.data.User;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -111,6 +117,25 @@ public class FacebookActivity extends AppCompatActivity {
                     String first_name = object.getString("first_name");
                     String last_name = object.getString("last_name");
                     String id = object.getString("id");
+
+                    String email = object.getString("email");
+                    String name = object.getString("name");
+                    final API api = new API(null);
+
+                    // if the user is not registered with facebook on the server
+                    // it will automatically register
+                    api.facebookLogin(email, id, name, new ICallback() {
+                        @Override
+                        public void onFinish(String response, Context context) {
+                            JSONObject resp = Utils.responseToJSON(response);
+                            User user = User.fromJSONObject(resp);
+                        }
+
+                        @Override
+                        public void onError(VolleyError error, Context context) {
+
+                        }
+                    });
 
                     String imageURL = "https://graph.facebook.com/" + id + "/picture?type=normal";
                     name.setText(first_name + " " + last_name);
