@@ -1,0 +1,3 @@
+[submodule "Clothes-Ordering-Application-Server"]
+	path = Clothes-Ordering-Application-Server
+	url = https://github.com/stefaniafiriza/Clothes-Ordering-Application-Server/
