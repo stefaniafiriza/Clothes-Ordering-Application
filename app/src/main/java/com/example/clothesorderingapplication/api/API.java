@@ -86,7 +86,7 @@ public class API {
         if (!codeManager.equals("")){
             type = Integer.toString(Utils.typeToInt(Type.MANAGER));
         }else{
-            codeManager = "0";
+            codeManager = "";
         }
         String url = createURL("/api/register", parametersToURL(
                 new String[]{"username", "password", "name", "email", "type", "phoneNumber", "codeManager"},

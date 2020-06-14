@@ -25,7 +25,7 @@
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/ic_flattr"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
@@ -65,33 +65,6 @@
         android:autofillHints=""
         tools:targetApi="o" />
 
-    <EditText
-        android:id="@+id/code"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:background="@drawable/et_bg"
-        android:hint="@string/manager_code"
-        android:inputType="textShortMessage"
-        android:padding="16dp"
-        android:textColorHint="@color/login_form_details"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        tools:targetApi="o" />
-
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="216dp"
-        android:hint="@string/manager"
-        app:layout_constraintBottom_toBottomOf="@+id/code"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toTopOf="@+id/code"
-        app:layout_constraintVertical_bias="0.689" />
-
     <Button
         android:id="@+id/btn_login"
         android:layout_width="0dp"
@@ -103,7 +76,7 @@
         android:textColor="@color/login_form_details_medium"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/code" />
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
     <TextView
         android:id="@+id/forgot_password"
