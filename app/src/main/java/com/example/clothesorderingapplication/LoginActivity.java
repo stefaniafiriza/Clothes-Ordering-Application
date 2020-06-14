@@ -27,8 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     protected Button Login;
     protected EditText Username;
     protected EditText Password;
-    protected Switch aSwitch;
-    protected EditText Manager;
     protected TextView Facebook;
 
     @Override
@@ -43,28 +41,12 @@ public class LoginActivity extends AppCompatActivity {
 
         final API api = new API(this);
 
-        aSwitch = findViewById(R.id.switch2);
-        Manager = findViewById(R.id.code);
         Facebook = findViewById(R.id.facebook_login);
 
         Facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, FacebookActivity.class));
-            }
-        });
-
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    Login.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(LoginActivity.this, ManagerActivity.class));
-                        }
-                    });
-                }
             }
         });
 
@@ -89,8 +71,12 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 User user = User.fromJSONObject(resp);
                                 // go to next activity
+                                if(!user.getManagerCode().equals("")) {
+                                    startActivity(new Intent(LoginActivity.this, ManagerActivity.class));
+                                }else{
+                                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                }
 
-                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                             }
 
                             @Override
@@ -108,15 +94,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
-            }
-        });
-
-        Manager.setVisibility(View.INVISIBLE);
-        aSwitch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Manager.setVisibility(View.VISIBLE);
-                aSwitch.setVisibility(View.INVISIBLE);
             }
         });
     }

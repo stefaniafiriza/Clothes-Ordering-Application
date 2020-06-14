@@ -9,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Utils {
-    static String api_key = "";
-    static String url = "http://192.168.0.171:8080";
+    static String api_key = "1234";
+    static String url = "http://192.168.1.4:8080";
 
     public static JSONObject responseToJSON(String response) {
         try {
