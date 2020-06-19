@@ -3,6 +3,7 @@ package com.example.clothesorderingapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.VolleyError;
+import com.example.clothesorderingapplication.api.API;
+import com.example.clothesorderingapplication.api.interfaces.ICallback;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,6 +60,7 @@ public class NewsActivity extends AppCompatActivity {
         add22 = findViewById(R.id.add22);
         List<ImageButton> allButton = Arrays.asList(add1, add2, add3, add4, add5, add6, add7, add8, add9, add10, add11, add12, add13, add14, add15, add16, add17, add18, add19, add20, add21, add22);
         addButton.addAll(allButton);
+        final API api = new API(this);
 
         for (ImageButton current : addButton) {
             current.setOnClickListener(new View.OnClickListener() {
