@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -20,13 +21,22 @@ public class ManagerActivity extends AppCompatActivity {
     protected ArrayList<ImageButton> addButton = new ArrayList<>();
     protected ArrayList<ImageButton> removeButton = new ArrayList<>();
     protected MenuItem menuLogOut;
+    protected Button managerItem, managerOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
 
-        addBtn[0] = findViewById(R.id.manager_add1);
+        managerItem = findViewById(R.id.manager_items);
+        managerOrder = findViewById(R.id.manager_orders);
+
+        managerItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.manager_items);
+
+                 addBtn[0] = findViewById(R.id.manager_add1);
         addBtn[1] = findViewById(R.id.manager_add2);
         addBtn[2] = findViewById(R.id.manager_add3);
         addBtn[3] = findViewById(R.id.manager_add4);
@@ -159,6 +169,15 @@ public class ManagerActivity extends AppCompatActivity {
                 }
             });
         }
+            }
+        });
+
+        managerOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.manager_orders);
+            }
+        });
 
     }
 

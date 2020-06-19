@@ -12,7 +12,7 @@ public class Product {
     private String stock;
     private String description;
 
-    static Product fromJSONObject(JSONObject json){
+   public static Product fromJSONObject(JSONObject json){
         try{
             Product product = new Product();
             product.name = json.getString("Name");
@@ -22,6 +22,8 @@ public class Product {
             product.price = json.getString("Price");
             product.stock = json.getString("Stock");
             product.description = json.getString("Description");
+
+            return product;
         }
         catch (JSONException e)
         {
