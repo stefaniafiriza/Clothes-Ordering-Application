@@ -148,6 +148,16 @@ public class ShopBasketActivity extends AppCompatActivity {
                             for(Long l : amountOfItems){
                                 ((ShopBasketActivity)context).amountOfItems.add(l);
                             }
+
+                            float total_price = 0.0f;
+                            for(int i = 0; i<productList.size(); i++){
+                                Product p = productList.get(i);
+
+                                total_price += Float.parseFloat(p.getPrice()) * amountOfItems.get(i);
+                            }
+                            String s = "Total :" + total_price;
+                            ((ShopBasketActivity)context).total.setText(s);
+
                             productAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -162,14 +172,6 @@ public class ShopBasketActivity extends AppCompatActivity {
                     }
                 }
         );
-        // update visuals with products from productList
-        float total_price = 0.0f;
-        for(int i = 0; i<productList.size(); i++){
-            Product p = productList.get(i);
 
-            total_price += Float.parseFloat(p.getPrice()) * amountOfItems.get(i);
-        }
-        String s = "Total :" + total_price;
-        this.total.setText(s);
     }
 }
