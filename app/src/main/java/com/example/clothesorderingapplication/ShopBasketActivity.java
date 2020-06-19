@@ -96,6 +96,7 @@ public class ShopBasketActivity extends AppCompatActivity {
                                     }
                                 }
                             }
+                            ((ShopBasketActivity)context).UpdateList();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -151,5 +152,9 @@ public class ShopBasketActivity extends AppCompatActivity {
                 startActivity(new Intent(ShopBasketActivity.this,OrderStatusActivity.class));
             }
         });
+    }
+
+    public void UpdateList(){
+        // update visuals with products from productList
     }
 }
