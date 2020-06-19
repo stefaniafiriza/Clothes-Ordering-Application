@@ -17,6 +17,7 @@ public class Product {
     public static LinkedList<Product> products = new LinkedList<Product>();
 
     public static Product fromJSONObject(JSONObject json){
+
         try{
             Product product = new Product();
             product.name = json.getString("Name");
