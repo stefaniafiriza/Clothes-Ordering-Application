@@ -132,7 +132,7 @@ public class SearchActivity extends AppCompatActivity {
                                         p.fromJSONObject(jsonObject);
 
                                         setContentView(R.layout.search_item);
-                                        if (p.getName().equals("dress")) {
+                                        if (p.getType().equals("dress")) {
                                             i1.setImageResource(R.drawable.r1);
                                             i2.setImageResource(R.drawable.r2);
                                             i3.setImageResource(R.drawable.r3);
@@ -145,7 +145,7 @@ public class SearchActivity extends AppCompatActivity {
                                             }
                                             p6.setVisibility(View.INVISIBLE);
                                         }
-                                        if (p.getName().equals("jeans")) {
+                                        if (p.getType().equals("jeans")) {
                                             i1.setImageResource(R.drawable.b1);
                                             i2.setImageResource(R.drawable.b2);
                                             i3.setImageResource(R.drawable.b3);
@@ -156,7 +156,7 @@ public class SearchActivity extends AppCompatActivity {
                                                 textView.setText(p.getPrice());
                                             }
                                         }
-                                        if (p.getName().equals("skirt")) {
+                                        if (p.getType().equals("skirt")) {
                                             i1.setImageResource(R.drawable.f1);
                                             i2.setImageResource(R.drawable.f2);
                                             i3.setImageResource(R.drawable.f3);
@@ -169,7 +169,7 @@ public class SearchActivity extends AppCompatActivity {
                                             }
                                             p6.setVisibility(View.INVISIBLE);
                                         }
-                                        if (p.getName().equals("t-shirt")) {
+                                        if (p.getType().equals("t-shirt")) {
                                             i1.setImageResource(R.drawable.t1);
                                             i2.setImageResource(R.drawable.t2);
                                             i3.setImageResource(R.drawable.t3);
@@ -180,7 +180,7 @@ public class SearchActivity extends AppCompatActivity {
                                                 textView.setText(p.getPrice());
                                             }
                                         }
-                                        if (p.getName().equals("belt")) {
+                                        if (p.getType().equals("belt")) {
                                             i1.setImageResource(R.drawable.c1);
                                             i2.setImageResource(R.drawable.c2);
                                             i3.setImageResource(R.drawable.c3);
@@ -191,7 +191,7 @@ public class SearchActivity extends AppCompatActivity {
                                                 textView.setText(p.getPrice());
                                             }
                                         }
-                                        if (p.getName().equals("bag")) {
+                                        if (p.getType().equals("bag")) {
                                             i1.setImageResource(R.drawable.g1);
                                             i2.setImageResource(R.drawable.g2);
                                             i3.setImageResource(R.drawable.g3);
@@ -199,7 +199,7 @@ public class SearchActivity extends AppCompatActivity {
                                             i5.setImageResource(R.drawable.g5);
                                             i6.setImageResource(R.drawable.g6);
                                         }
-                                        if (p.getName().equals("scarf")) {
+                                        if (p.getType().equals("scarf")) {
                                             i1.setImageResource(R.drawable.e1);
                                             i2.setImageResource(R.drawable.e2);
                                             i3.setImageResource(R.drawable.e3);
@@ -214,7 +214,7 @@ public class SearchActivity extends AppCompatActivity {
                                             p5.setVisibility(View.INVISIBLE);
                                             p6.setVisibility(View.INVISIBLE);
                                         }
-                                        if (p.getName().equals("blouse")) {
+                                        if (p.getType().equals("blouse")) {
                                             i1.setImageResource(R.drawable.bl1);
                                             i2.setImageResource(R.drawable.bl2);
                                             i3.setImageResource(R.drawable.bl3);
@@ -225,7 +225,7 @@ public class SearchActivity extends AppCompatActivity {
                                                 textView.setText(p.getPrice());
                                             }
                                         }
-                                        if (p.getName().equals("jaket")) {
+                                        if (p.getType().equals("jaket")) {
                                             i1.setImageResource(R.drawable.gh1);
                                             i2.setImageResource(R.drawable.gh2);
                                             i3.setImageResource(R.drawable.gh3);
@@ -240,7 +240,7 @@ public class SearchActivity extends AppCompatActivity {
                                             p5.setVisibility(View.INVISIBLE);
                                             p6.setVisibility(View.INVISIBLE);
                                         }
-                                        if (p.getName().equals("coat")) {
+                                        if (p.getType().equals("coat")) {
                                             i1.setImageResource(R.drawable.p1);
                                             i2.setImageResource(R.drawable.p2);
                                             i3.setImageResource(R.drawable.p3);
