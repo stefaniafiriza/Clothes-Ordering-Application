@@ -93,6 +93,8 @@
     <string name="the_order_was_successfully_registered">The order was successfully registered.</string>
     <string name="in_2_3_working_days_the_courier_will_contact_you">In 2-3 working days the courier will contact you.</string>
     <string name="back_to_the_home_page">Back to the home page</string>
+    <string name="delete">Delete</string>
+
     <string name="manager_items">Items</string>
     <string name="orders">Orders</string>
     <string name="accept">Accept</string>
@@ -102,5 +104,6 @@
     <string name="order5">order5</string>
     <string name="order6">order6</string>
     <string name="order2">order2</string>
+
 
 </resources>
