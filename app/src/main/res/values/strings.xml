@@ -102,5 +102,10 @@
     <string name="order5">order5</string>
     <string name="order6">order6</string>
     <string name="order2">order2</string>
+    <string name="admin">Admin</string>
+    <string name="go_to_user_page">USER</string>
+    <string name="go_to_manager_page">MANAGER</string>
+    <string name="make_a_new_account">Make a new account</string>
+    <string name="go_to_admin_page">ADMIN</string>
 
 </resources>
