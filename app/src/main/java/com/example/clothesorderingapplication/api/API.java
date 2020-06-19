@@ -149,4 +149,9 @@ public class API {
         String url = createURL("/api/getOrderByUserID", parametersToURL(new String[]{"userID"}, new String[]{userID}));
         call(url, orderByUserIDCallback);
     }
+
+    public void deleteProduct(String productName, final ICallback deleteProductCallback){
+        String url = createURL("/api/deleteProduct", parametersToURL(new String[]{"name"}, new String[]{productName}));
+        call(url, deleteProductCallback);
+    }
 }
