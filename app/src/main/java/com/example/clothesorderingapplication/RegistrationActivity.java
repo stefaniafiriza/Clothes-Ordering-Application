@@ -48,7 +48,6 @@ public class RegistrationActivity extends AppCompatActivity {
         user = findViewById(R.id.username);
         password = findViewById(R.id.generatePassword);
         loadingBar = new ProgressDialog(this);
-
         final API api = new API(this);
 
         Register.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +57,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.makeText(RegistrationActivity.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
                 } else {
                     loadingBar.setTitle("Create Account");
-                    loadingBar.setMessage("Please wait, while we are checking the credentials.");
+                    loadingBar.setMessage("Please wait.");
                     loadingBar.setCanceledOnTouchOutside(false);
                     loadingBar.show();
 

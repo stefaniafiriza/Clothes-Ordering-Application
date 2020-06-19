@@ -3,6 +3,8 @@ package com.example.clothesorderingapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,12 +14,23 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
+import com.example.clothesorderingapplication.api.API;
+import com.example.clothesorderingapplication.api.interfaces.ICallback;
+import com.example.clothesorderingapplication.data.Product;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.LinkedList;
+
 public class HomeActivity extends AppCompatActivity {
 
     protected MenuItem menuItem_basket, menuItem_favorite, menuLogOut;
     protected TextView badgeCounter;
     protected int basketItems = 0;
     protected int favoriteItems = 3;
+    protected ProgressDialog loadingBar;
     protected Button Products;
     protected Button News;
     protected Button Accessory;
@@ -58,6 +71,39 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, SaleActivity.class));
+            }
+        });
+
+
+        // get the products from the database
+        loadingBar = new ProgressDialog(this);
+        loadingBar.setTitle("Update products.");
+        loadingBar.setMessage("Please wait, while we're retrieving the products.");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
+        final API api = new API(this);
+        api.getProducts(new ICallback() {
+            @Override
+            public void onFinish(String response, Context context) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    Product.products = new LinkedList<>();
+                    for(int i =0; i < jsonArray.length(); i ++){
+                        Product.products.add(Product.fromJSONObject(jsonArray.getJSONObject(i)));
+                    }
+                    loadingBar.dismiss();
+                    return;
+                } catch (JSONException e) {
+                    loadingBar.dismiss();
+                    e.printStackTrace();
+                }
+
+                Toast.makeText(HomeActivity.this,"Failed to retrieve products from the server.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(VolleyError error, Context context) {
+
             }
         });
     }

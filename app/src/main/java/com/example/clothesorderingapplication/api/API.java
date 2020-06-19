@@ -129,6 +129,10 @@ public class API {
         call(url, getProductsCallback);
     }
 
+    public void getShoppingCart(String cartID, final ICallback getShoppingCartCallback){
+        String url = createURL("/api/getShoppingCart", parametersToURL(new String[]{"cartID"}, new String[]{cartID}));
+        call(url, getShoppingCartCallback);
+    }
 
     public void verifyUser(String username,final ICallback verifyUserCallback){
         String url = createURL("/api/verifyUser", parametersToURL(new String[]{"username"}, new String[] {username}));
