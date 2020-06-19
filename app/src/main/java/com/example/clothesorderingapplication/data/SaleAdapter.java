@@ -1,8 +1,6 @@
 package com.example.clothesorderingapplication.data;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
@@ -22,53 +18,47 @@ import com.example.clothesorderingapplication.R;
 import com.example.clothesorderingapplication.api.API;
 import com.example.clothesorderingapplication.api.interfaces.ICallback;
 
-
 import java.util.LinkedList;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.ViewHolder> {
-
-    LinkedList<Pair<Product, Product>> accessoryList = new LinkedList<>();
+public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.ViewHolder>{
+    LinkedList<Pair<Product, Product>> productsList = new LinkedList<>();
     Context context;
 
-    public AccessoryAdapter(LinkedList<Product> productList, Context context){
+    public SaleAdapter(LinkedList<Product> productsList, Context context){
         this.context = context;
-        LinkedList<Product> accs = new LinkedList<>();
-        for(int i =0; i < productList.size(); i++){
-            Product p = productList.get(i);
-            if(p.getType().equals("belt") || p.getType().equals("bag") || p.getType().equals("scarf")){
-                accs.add(p);
+        LinkedList<Product> products = new LinkedList<>();
+        for(int i =0; i < productsList.size(); i++){
+            Product p = productsList.get(i);
+            if(!(p.getType().equals("belt") || p.getType().equals("bag") || p.getType().equals("scarf"))){
+                products.add(p);
             }
-
         }
-        for(int i =0; i < accs.size(); i+=2){
+        for(int i =0; i < products.size(); i+=2){
             Pair<Product, Product> pair;
-            if(i +1 < accs.size()){
+            if(i +1 < products.size()){
                 // not the last one
-                pair = new Pair<Product, Product>(accs.get(i), accs.get(i+1));
+                pair = new Pair<Product, Product>(products.get(i), products.get(i+1));
 
             }else {
-                pair = new Pair<Product, Product>(accs.get(i), null);
+                pair = new Pair<Product, Product>(products.get(i), null);
 
             }
-            accessoryList.add(pair);
+            this.productsList.add(pair);
         }
-
     }
-
     @NonNull
     @Override
-    public AccessoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SaleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View contactView = inflater.inflate(R.layout.item_accessory, parent, false);
 
-        return new AccessoryAdapter.ViewHolder(contactView);
+        return new SaleAdapter.ViewHolder(contactView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AccessoryAdapter.ViewHolder holder, int position) {
-        final Pair<Product, Product> p = this.accessoryList.get(position);
+    public void onBindViewHolder(@NonNull SaleAdapter.ViewHolder holder, int position) {
+        final Pair<Product, Product> p = this.productsList.get(position);
         final API api = new API(this.context);
         final ICallback callback = new ICallback() {
             @Override
@@ -85,7 +75,6 @@ public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.View
                 Toast.makeText( context, "Could not add the item to the shopping basket.", Toast.LENGTH_SHORT).show();
             }
         };
-
         holder.price1.setText(p.first.getPrice() + "€");
         holder.addToCart1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +82,7 @@ public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.View
                 api.addToCart(User.logged_in_user.getShoppingCartID(), p.first.getId(), "1", callback);
             }
         });
+
         holder.c1.setBackgroundResource(p.first.getImg_id());
 
         if(p.second != null){
@@ -103,18 +93,17 @@ public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.View
                     api.addToCart(User.logged_in_user.getShoppingCartID(), p.second.getId(), "1", callback);
                 }
             });
+
             holder.c2.setBackgroundResource(p.second.getImg_id());
         }else{
             holder.addToCart2.setVisibility(View.INVISIBLE);
         }
-
-
     }
 
 
     @Override
     public int getItemCount() {
-        return accessoryList.size();
+        return productsList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
