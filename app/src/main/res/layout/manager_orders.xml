@@ -1,6 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_page">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="@string/magazzino"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="414dp"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/order_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginEnd="130dp"
+            android:gravity="center"
+            android:text="@string/orders"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/order1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order_title"
+            android:layout_marginTop="30dp"
+            android:text="@string/order1"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"/>
+
+        <Button
+            android:id="@+id/accept1"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/order_title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/accept"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:background="@drawable/btn_bg"/>
+
+        <TextView
+            android:id="@+id/order2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order1"
+            android:layout_marginTop="20dp"
+            android:text="@string/order2"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"/>
+
+        <Button
+            android:id="@+id/accept2"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/accept1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/accept"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:background="@drawable/btn_bg"/>
+
+        <TextView
+            android:id="@+id/order3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order2"
+            android:layout_marginTop="20dp"
+            android:text="@string/order3"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"/>
+
+        <Button
+            android:id="@+id/accept3"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/accept2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/accept"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:background="@drawable/btn_bg"/>
+
+        <TextView
+            android:id="@+id/order4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order3"
+            android:layout_marginTop="20dp"
+            android:text="@string/order4"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"/>
+
+        <Button
+            android:id="@+id/accept4"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/accept3"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/accept"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:background="@drawable/btn_bg"/>
+
+        <TextView
+            android:id="@+id/order5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order4"
+            android:layout_marginTop="20dp"
+            android:text="@string/order5"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"/>
+
+        <Button
+            android:id="@+id/accept5"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/accept4"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/accept"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:background="@drawable/btn_bg"/>
+
+        <TextView
+            android:id="@+id/order6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order5"
+            android:layout_marginTop="15dp"
+            android:text="@string/order6"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"/>
+
+        <Button
+            android:id="@+id/accept6"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/accept5"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/accept"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:background="@drawable/btn_bg"/>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
