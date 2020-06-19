@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.example.clothesorderingapplication.api.API;
 import com.example.clothesorderingapplication.api.interfaces.ICallback;
 import com.example.clothesorderingapplication.data.Product;
+import com.example.clothesorderingapplication.data.ProductAdapter;
 import com.example.clothesorderingapplication.data.User;
 
 import org.json.JSONArray;
@@ -34,13 +35,15 @@ public class ShopBasketActivity extends AppCompatActivity {
     protected Button order, orderStatus;
     protected TextView empty_cart, total;
     LinkedList<Product> productList = new LinkedList<>();
-    LinkedList<Long> amountOfItems;
+    LinkedList<Long> amountOfItems = new LinkedList<>();
+    final ProductAdapter productAdapter = new ProductAdapter(this.productList, this.amountOfItems, this);;
+    API api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_basket);
-
+        api = new API(this);
         Back = findViewById(R.id.btn_back);
         empty_cart = findViewById(R.id.empty_cart);
         recyclerView = findViewById(R.id.cart_list);
@@ -55,61 +58,7 @@ public class ShopBasketActivity extends AppCompatActivity {
         empty_cart.setVisibility(View.INVISIBLE);
         orderStatus.setVisibility(View.INVISIBLE);
 
-        final API api = new API(this);
-        api.getShoppingCart(
-                User.logged_in_user.getShoppingCartID(),
-                new ICallback() {
-
-                    LinkedList<Long> cartHelper(JSONArray array){
-                        LinkedList<Long> list= new LinkedList<>();
-                        for(int i =0; i < array.length(); i ++){
-                            try {
-                                list.add(array.getLong(i));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        return list;
-                    }
-
-                    @Override
-                    public void onFinish(String response, Context context) {
-                        if(response.contains("null")){
-                            // the cart has nothing in it, skip
-                            return;
-                        }
-
-                        response = response.substring(response.indexOf('[') + 2, response.indexOf(']') - 1);
-                        response = response.replaceAll("\\{", "[");
-                        response = response.replaceAll("}", "]");
-                        response = "{" + response + "}";
-                        try {
-                            JSONObject json = new JSONObject(response);
-                            LinkedList<Long> cartItems = cartHelper(json.getJSONArray("Cart"));
-                            ((ShopBasketActivity)context).amountOfItems = cartHelper(json.getJSONArray("Ammounts"));
-
-                            for(Long l : cartItems){
-                                for(Product p : Product.products){
-                                    if(p.getId().equals(l + "")){
-                                        ((ShopBasketActivity)context).productList.add(p);
-                                        break;
-                                    }
-                                }
-                            }
-                            ((ShopBasketActivity)context).UpdateList();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-
-                    @Override
-                    public void onError(VolleyError error, Context context) {
-
-                    }
-                }
-        );
+        this.UpdateList();
 
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,6 +104,72 @@ public class ShopBasketActivity extends AppCompatActivity {
     }
 
     public void UpdateList(){
+        recyclerView.setAdapter(productAdapter);
+        api.getShoppingCart(
+                User.logged_in_user.getShoppingCartID(),
+                new ICallback() {
+
+                    LinkedList<Long> cartHelper(JSONArray array){
+                        LinkedList<Long> list= new LinkedList<>();
+                        for(int i =0; i < array.length(); i ++){
+                            try {
+                                list.add(array.getLong(i));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        return list;
+                    }
+
+                    @Override
+                    public void onFinish(String response, Context context) {
+                        if(response.contains("null") || response.contains("{}")){
+                            // the cart has nothing in it, skip
+                            return;
+                        }
+
+                        response = response.substring(response.indexOf('[') + 2, response.indexOf(']') - 1);
+                        response = response.replaceAll("\\{", "[");
+                        response = response.replaceAll("\\}", "]");
+                        response = "{" + response + "}";
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            LinkedList<Long> cartItems = cartHelper(json.getJSONArray("Cart"));
+                            LinkedList<Long> amountOfItems = cartHelper(json.getJSONArray("Ammounts"));
+
+                            for(Long l : cartItems){
+                                for(Product p : Product.products){
+                                    if(p.getId().equals(l + "")){
+                                        ((ShopBasketActivity)context).productList.add(p);
+                                        break;
+                                    }
+                                }
+                            }
+                            for(Long l : amountOfItems){
+                                ((ShopBasketActivity)context).amountOfItems.add(l);
+                            }
+                            productAdapter.notifyDataSetChanged();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onError(VolleyError error, Context context) {
+
+                    }
+                }
+        );
         // update visuals with products from productList
+        float total_price = 0.0f;
+        for(int i = 0; i<productList.size(); i++){
+            Product p = productList.get(i);
+
+            total_price += Float.parseFloat(p.getPrice()) * amountOfItems.get(i);
+        }
+        String s = "Total :" + total_price;
+        this.total.setText(s);
     }
 }
