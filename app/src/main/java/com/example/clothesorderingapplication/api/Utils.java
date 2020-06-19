@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 public class Utils {
     static String api_key = "1234";
-    static String url = "http://192.168.1.4:8080";
+    static String url = "http://192.168.1.3:8080";
 
     public static JSONObject responseToJSON(String response) {
         try {
