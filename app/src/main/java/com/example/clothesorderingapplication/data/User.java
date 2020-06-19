@@ -13,6 +13,9 @@ public class User {
     private String phoneNumber;
     private Type type;
     private String ManagerCode;
+    private String ShoppingCartID;
+
+    public static User logged_in_user = null;
 
     public static User fromJSONObject(JSONObject json){
         try {
@@ -23,6 +26,7 @@ public class User {
             user.email = json.getString("Email");
             user.ManagerCode = json.getString("Code Manager");
             user.phoneNumber = json.getString("PhoneNumber");
+            user.ShoppingCartID = json.getString("ShoppingCartId");
             return user;
         } catch (JSONException e) {
             e.printStackTrace();
@@ -89,4 +93,11 @@ public class User {
         this.id = id;
     }
 
+    public String getShoppingCartID() {
+        return ShoppingCartID;
+    }
+
+    public void setShoppingCartID(String shoppingCartID) {
+        ShoppingCartID = shoppingCartID;
+    }
 }

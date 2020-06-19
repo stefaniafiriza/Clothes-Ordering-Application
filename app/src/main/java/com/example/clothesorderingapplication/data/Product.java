@@ -3,6 +3,8 @@ package com.example.clothesorderingapplication.data;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.LinkedList;
+
 public class Product {
     private String name;
     private String id;
@@ -12,7 +14,9 @@ public class Product {
     private String stock;
     private String description;
 
-    static Product fromJSONObject(JSONObject json){
+    public static LinkedList<Product> products = new LinkedList<Product>();
+
+    public static Product fromJSONObject(JSONObject json){
         try{
             Product product = new Product();
             product.name = json.getString("Name");
@@ -22,6 +26,7 @@ public class Product {
             product.price = json.getString("Price");
             product.stock = json.getString("Stock");
             product.description = json.getString("Description");
+            return product;
         }
         catch (JSONException e)
         {
@@ -76,5 +81,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

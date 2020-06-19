@@ -70,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                                     // successful, if the response does not contain "result" and "message" it means it's the user string.
                                 }
                                 User user = User.fromJSONObject(resp);
+                                User.logged_in_user = user;
                                 // go to next activity
                                 if(!user.getManagerCode().equals("")) {
                                     startActivity(new Intent(LoginActivity.this, ManagerActivity.class));
