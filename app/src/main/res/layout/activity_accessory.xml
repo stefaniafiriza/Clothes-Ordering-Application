@@ -45,13 +45,27 @@
         app:layout_constraintTop_toBottomOf="@+id/search2"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/accessory1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="115dp"
+        android:text="@string/accessory"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l2"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/acc_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/search2"
-        app:layout_constraintTop_toBottomOf="@+id/l2"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"/>
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accessory1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
