@@ -72,10 +72,14 @@ public class LoginActivity extends AppCompatActivity {
                                 User user = User.fromJSONObject(resp);
                                 User.logged_in_user = user;
                                 // go to next activity
-                                if(!user.getManagerCode().equals("")) {
+                                if(!user.getManagerCode().equals("") && !user.getManagerCode().equals("2")) {
                                     startActivity(new Intent(LoginActivity.this, ManagerActivity.class));
                                 }else{
-                                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                    if(user.getManagerCode().equals("2")){
+                                        startActivity(new Intent(LoginActivity.this,AdminActivity.class));
+                                    }else {
+                                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                    }
                                 }
 
                             }
