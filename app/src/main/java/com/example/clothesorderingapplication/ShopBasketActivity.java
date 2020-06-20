@@ -155,7 +155,7 @@ public class ShopBasketActivity extends AppCompatActivity {
 
                                 total_price += Float.parseFloat(p.getPrice()) * amountOfItems.get(i);
                             }
-                            String s = "Total :" + total_price;
+                            String s = "Total :" + total_price + "€";
                             ((ShopBasketActivity)context).total.setText(s);
 
                             productAdapter.notifyDataSetChanged();

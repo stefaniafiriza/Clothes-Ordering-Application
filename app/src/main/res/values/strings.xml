@@ -58,7 +58,7 @@
     <string name="t_shirt">T-SHIRT</string>
     <string name="skirt">SKIRT</string>
     <string name="jaket">JAKET</string>
-    <string name="coat">Coat</string>
+    <string name="coat">COAT</string>
     <string name="sale">SALE</string>
     <string name="accessory">ACCESSORY</string>
     <string name="bag">BAG</string>
@@ -93,6 +93,8 @@
     <string name="the_order_was_successfully_registered">The order was successfully registered.</string>
     <string name="in_2_3_working_days_the_courier_will_contact_you">Your order has been accepted and the courier will contact you soon.</string>
     <string name="back_to_the_home_page">Back to the home page</string>
+    <string name="delete">Delete</string>
+
     <string name="manager_items">Items</string>
     <string name="orders">Orders</string>
     <string name="accept">Accept</string>
@@ -108,5 +110,6 @@
     <string name="make_a_new_account">Make a new account</string>
     <string name="go_to_admin_page">ADMIN</string>
     <string name="approve_order">Please wait for a manager to approve your order.</string>
+
 
 </resources>
