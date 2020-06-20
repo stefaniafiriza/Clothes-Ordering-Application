@@ -113,7 +113,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
-
             nameTextView = (TextView) itemView.findViewById(R.id.cart_product_name);
             quantity = (TextView) itemView.findViewById(R.id.cart_product_quantity);
             price = (TextView) itemView.findViewById(R.id.cart_product_price);

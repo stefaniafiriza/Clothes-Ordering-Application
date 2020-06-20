@@ -116,6 +116,10 @@
     <string name="make_a_new_account">Make a new account</string>
     <string name="go_to_admin_page">ADMIN</string>
     <string name="approve_order">Please wait for a manager to approve your order.</string>
+    <string name="create_an_admin_account">Create an admin account</string>
+    <string name="user_page">User Page</string>
+    <string name="manager_page">Manager Page</string>
+
 
 
 </resources>

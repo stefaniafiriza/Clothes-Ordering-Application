@@ -84,11 +84,16 @@ public class API {
 
     public void register(String username, String password, String name, String email, String phoneNumber, String codeManager, final ICallback registerCallback) {
         String type = Integer.toString(Utils.typeToInt(Type.CUSTOMER));
-        if (!codeManager.equals("")) {
+        if (!codeManager.equals("") && !codeManager.equals("2")) {
             type = Integer.toString(Utils.typeToInt(Type.MANAGER));
         } else {
+            if (codeManager.equals("2")) {
+                type = Integer.toString(Utils.typeToInt(Type.ADMIN));
+                codeManager = "2";
+            } else {
 
-            codeManager = "";
+                codeManager = "";
+            }
         }
         String url = createURL("/api/register", parametersToURL(
                 new String[]{"username", "password", "name", "email", "type", "phoneNumber", "codeManager"},
