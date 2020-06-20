@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 public class AdminActivity extends AppCompatActivity {
@@ -41,7 +42,7 @@ public class AdminActivity extends AppCompatActivity {
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminActivity.this,RegistrationActivity.class));
+                startActivity(new Intent(AdminActivity.this,RegistrationAdminActivity.class));
             }
         });
     }

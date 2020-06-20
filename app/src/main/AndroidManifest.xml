@@ -15,7 +15,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AdminActivity"
+        <activity
+            android:name=".RegistrationAdminActivity"
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminActivity"
             android:configChanges="orientation"
             android:label=""
             android:screenOrientation="portrait" />
