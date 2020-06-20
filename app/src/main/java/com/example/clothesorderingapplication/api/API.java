@@ -172,4 +172,9 @@ public class API {
                 new String[]{id,name, type, size, price, stock, description}));
         call(url, editProductCallback);
     }
+
+    public void toggleAddToCart(final ICallback toggleAddToCartCallback) {
+        String url = createURL("/api/toggleAddToCart", parametersToURL(new String[]{}, new String[]{}));
+        call(url, toggleAddToCartCallback);
+    }
 }

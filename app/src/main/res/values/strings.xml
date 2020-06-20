@@ -118,6 +118,8 @@
     <string name="create_an_admin_account">Create an admin account</string>
     <string name="user_page">User Page</string>
     <string name="manager_page">Manager Page</string>
+    <string name="addtocart">Toggle Add To Cart</string>
+    <string name="adminsettings">Admin Settings</string>
 
 
 </resources>
