@@ -27,7 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
 
-        app:layout_constraintTop_toBottomOf="@+id/text" />
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"/>
 
     <ImageButton
         android:id="@+id/add_product"
