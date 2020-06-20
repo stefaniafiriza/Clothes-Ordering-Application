@@ -22,6 +22,7 @@ import javax.crypto.spec.PBEKeySpec;
 public class API {
     private RequestQueue queue;
     public final Context context;
+
     public API(Context context) {
         this.context = context;
         this.queue = Volley.newRequestQueue(context);
@@ -45,7 +46,7 @@ public class API {
         return "SaltedPassword".getBytes();
     }
 
-    private String getHashedPassword(String password){
+    private String getHashedPassword(String password) {
         PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), getSalt(), 1000, 256);
         SecretKeyFactory skf = null;
         try {
@@ -57,7 +58,7 @@ public class API {
         return null;
     }
 
-    private void call(String url, final ICallback callback){
+    private void call(String url, final ICallback callback) {
         queue.add(new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -74,18 +75,19 @@ public class API {
         );
     }
 
-    public void login(String username, String password, final ICallback loginCallback){
+    public void login(String username, String password, final ICallback loginCallback) {
         String url = createURL("/api/login",
                 parametersToURL(new String[]{"username", "password"},
-                                new String[]{username, getHashedPassword(password)}));
+                        new String[]{username, getHashedPassword(password)}));
         call(url, loginCallback);
     }
 
-    public void register(String username, String password, String name, String email, String phoneNumber, String codeManager,final ICallback registerCallback) {
+    public void register(String username, String password, String name, String email, String phoneNumber, String codeManager, final ICallback registerCallback) {
         String type = Integer.toString(Utils.typeToInt(Type.CUSTOMER));
-        if (!codeManager.equals("")){
+        if (!codeManager.equals("")) {
             type = Integer.toString(Utils.typeToInt(Type.MANAGER));
-        }else{
+        } else {
+
             codeManager = "";
         }
         String url = createURL("/api/register", parametersToURL(
@@ -97,64 +99,64 @@ public class API {
 
     }
 
-    public void search(String product, final ICallback searchCallback){
+    public void search(String product, final ICallback searchCallback) {
         String url = createURL("/api/search", parametersToURL(new String[]{"name"}, new String[]{product}));
         call(url, searchCallback);
     }
 
-    public void createShoppingCartID(String userID,final ICallback shoppingCartCallback) {
+    public void createShoppingCartID(String userID, final ICallback shoppingCartCallback) {
         String url = createURL("/api/createShoppingCartID", parametersToURL(new String[]{"userID"}, new String[]{userID}));
         call(url, shoppingCartCallback);
     }
 
-    public void addToCart(String cartID, String productID, String amount,final ICallback addToCartCallback){
+    public void addToCart(String cartID, String productID, String amount, final ICallback addToCartCallback) {
         String url = createURL("/api/addToCart", parametersToURL(new String[]{"cartID", "productID", "amount"}, new String[]{cartID, productID, amount}));
         call(url, addToCartCallback);
     }
 
-    public void removeFromCart(String cartID, String productID, String amount,final ICallback removeFromCartCallback){
+    public void removeFromCart(String cartID, String productID, String amount, final ICallback removeFromCartCallback) {
         String url = createURL("/api/removeFromCart", parametersToURL(new String[]{"cartID", "productID", "amount"}, new String[]{cartID, productID, amount}));
         call(url, removeFromCartCallback);
     }
 
-    public void addProduct(String name, String type, String size, String price, String stock, String description,final ICallback addProductCallback){
+    public void addProduct(String name, String type, String size, String price, String stock, String description, final ICallback addProductCallback) {
         String url = createURL("/api/addProduct", parametersToURL(
                 new String[]{"name", "type", "size", "price", "stock", "description"},
                 new String[]{name, type, size, price, stock, description}));
         call(url, addProductCallback);
     }
 
-    public void getProducts(final ICallback getProductsCallback){
+    public void getProducts(final ICallback getProductsCallback) {
         String url = createURL("/api/getProducts", parametersToURL(new String[]{}, new String[]{}));
         call(url, getProductsCallback);
     }
 
-    public void getShoppingCart(String cartID, final ICallback getShoppingCartCallback){
+    public void getShoppingCart(String cartID, final ICallback getShoppingCartCallback) {
         String url = createURL("/api/getShoppingCart", parametersToURL(new String[]{"cartID"}, new String[]{cartID}));
         call(url, getShoppingCartCallback);
     }
 
-    public void verifyUser(String username,final ICallback verifyUserCallback){
-        String url = createURL("/api/verifyUser", parametersToURL(new String[]{"username"}, new String[] {username}));
+    public void verifyUser(String username, final ICallback verifyUserCallback) {
+        String url = createURL("/api/verifyUser", parametersToURL(new String[]{"username"}, new String[]{username}));
         call(url, verifyUserCallback);
     }
 
-    public void makeOrder(String cartID, final ICallback orderCallback){
-        String url = createURL("/api/order", parametersToURL(new String[]{"cartID"}, new String[] {cartID}));
+    public void makeOrder(String cartID, final ICallback orderCallback) {
+        String url = createURL("/api/order", parametersToURL(new String[]{"cartID"}, new String[]{cartID}));
         call(url, orderCallback);
     }
 
-    public void nextStepForOrder(String orderID, final ICallback nextStepCallback){
+    public void nextStepForOrder(String orderID, final ICallback nextStepCallback) {
         String url = createURL("/api/orderNextStep", parametersToURL(new String[]{"orderID"}, new String[]{orderID}));
         call(url, nextStepCallback);
     }
 
-    public void getOrderByUserID(String userID, final ICallback orderByUserIDCallback){
+    public void getOrderByUserID(String userID, final ICallback orderByUserIDCallback) {
         String url = createURL("/api/getOrderByUserID", parametersToURL(new String[]{"userID"}, new String[]{userID}));
         call(url, orderByUserIDCallback);
     }
 
-    public void deleteProduct(String productName, final ICallback deleteProductCallback){
+    public void deleteProduct(String productName, final ICallback deleteProductCallback) {
         String url = createURL("/api/deleteProduct", parametersToURL(new String[]{"name"}, new String[]{productName}));
         call(url, deleteProductCallback);
     }
