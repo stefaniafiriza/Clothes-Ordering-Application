@@ -167,4 +167,9 @@ public class API {
                 new String[]{id,name, type, size, price, stock, description}));
         call(url, editProductCallback);
     }
+
+    public void getOrders(final ICallback getOrdersCallback) {
+        String url = createURL("/api/getOrders", parametersToURL(new String[]{}, new String[]{}));
+        call(url, getOrdersCallback);
+    }
 }

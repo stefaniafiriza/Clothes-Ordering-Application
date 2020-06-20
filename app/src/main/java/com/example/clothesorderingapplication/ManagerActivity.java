@@ -15,6 +15,7 @@ import android.widget.Button;
 
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -28,8 +29,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
 
 public class ManagerActivity extends AppCompatActivity {
 
@@ -37,7 +36,7 @@ public class ManagerActivity extends AppCompatActivity {
     protected MenuItem menuLogOut;
     protected Button managerItem, managerOrder;
     protected Button[] accept = new Button[6];
-    protected ArrayList<Button> Accept = new ArrayList<>();
+    protected TextView[] orderIDS = new TextView[6];
     protected RecyclerView recyclerView;
     protected RecyclerView.LayoutManager layoutManager;
     protected ProgressDialog loadingBar;
@@ -107,29 +106,97 @@ public class ManagerActivity extends AppCompatActivity {
             }
         });
 
+
         managerOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setContentView(R.layout.manager_orders);
 
-                accept[0] = findViewById(R.id.accept1);
-                accept[1] = findViewById(R.id.accept2);
-                accept[2] = findViewById(R.id.accept3);
-                accept[3] = findViewById(R.id.accept4);
-                accept[4] = findViewById(R.id.accept5);
-                accept[5] = findViewById(R.id.accept6);
+                accept[0] =findViewById (R.id.accept1);
+                accept[1] =findViewById (R.id.accept2);
+                accept[2] =findViewById (R.id.accept3);
+                accept[3] =findViewById (R.id.accept4);
+                accept[4] =findViewById (R.id.accept5);
+                accept[5] =findViewById (R.id.accept6);
 
-                Collections.addAll(Accept,accept);
+                orderIDS[0] =findViewById (R.id.order1);
+                orderIDS[1] =findViewById (R.id.order2);
+                orderIDS[2] =findViewById (R.id.order3);
+                orderIDS[3] =findViewById (R.id.order4);
+                orderIDS[4] =findViewById (R.id.order5);
+                orderIDS[5] =findViewById (R.id.order6);
 
-                for(final Button current: accept){
-                    current.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(ManagerActivity.this, "The order has been accepted", Toast.LENGTH_SHORT).show();
-                            current.setVisibility(View.INVISIBLE);
+                api.getOrders(new ICallback() {
+                    @Override
+                    public void onFinish(String response, Context context) {
+
+
+                        if(response.contains("error")){
+                            Toast.makeText(ManagerActivity.this,"Failed to retrieve orders from the server.", Toast.LENGTH_SHORT).show();
+                            return;
                         }
-                    });
-                }
+                        try{
+                            String pattern = "\\{((\\d+,)+\\d+)\\}";
+                            response = response.replaceAll(pattern, "[$1]");
+                            pattern = "\\{(\\d+)\\}";
+                            response = response.replaceAll(pattern, "[$1]");
+
+
+                            JSONArray ja = new JSONArray(response);
+                            int k = 0;
+                            for(int i = 0; i < ja.length(); i++){
+                                if(k > 5){
+                                    break;
+                                }
+                                final String id = ja.getJSONObject(i).getString("Id");
+                                final String status = ja.getJSONObject(i).getString("Status");
+                                if(!status.equals("0"))
+                                    continue;
+
+                                orderIDS[k].setText(id);
+                                accept[k].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        api.nextStepForOrder(id, new ICallback() {
+                                            @Override
+                                            public void onFinish(String response, Context context) {
+                                                if(response.contains("error")){
+                                                    Toast.makeText(ManagerActivity.this,"Failed to accept the order.", Toast.LENGTH_SHORT).show();
+                                                    return;
+                                                }
+                                                Toast.makeText(ManagerActivity.this,"Accepted the order.", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                            @Override
+                                            public void onError(VolleyError error, Context context) {
+
+                                            }
+                                        });
+                                    }
+                                });
+                                k++;
+                            }
+
+                            for(; k <= 5; k++){
+                                orderIDS[k].setVisibility(View.INVISIBLE);
+                                accept[k].setVisibility(View.INVISIBLE);
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onError(VolleyError error, Context context) {
+
+                    }
+                });
+
+
             }
         });
     }
