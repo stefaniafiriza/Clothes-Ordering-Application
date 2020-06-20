@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String errorMessage = resp.getJSONObject("result").getString("message");
                                     // error;
                                     Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                                    return;
 
                                 }catch(Exception e){
                                     // successful, if the response does not contain "result" and "message" it means it's the user string.

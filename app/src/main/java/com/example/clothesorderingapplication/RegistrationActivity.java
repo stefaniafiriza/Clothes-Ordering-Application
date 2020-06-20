@@ -76,6 +76,8 @@ public class RegistrationActivity extends AppCompatActivity {
                                         String type = resp.getJSONObject("result").getString("type");
                                         if (type.equals("error")) {
                                             // error
+                                            loadingBar.dismiss();
+                                            Toast.makeText(RegistrationActivity.this, "Something went wrong.", Toast.LENGTH_SHORT).show();
                                             return;
                                         } else {
                                             // successful
