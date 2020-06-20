@@ -91,7 +91,7 @@
     <string name="go_to_the_home_page">GO TO THE HOME PAGE</string>
     <string name="order_status">Order status</string>
     <string name="the_order_was_successfully_registered">The order was successfully registered.</string>
-    <string name="in_2_3_working_days_the_courier_will_contact_you">In 2-3 working days the courier will contact you.</string>
+    <string name="in_2_3_working_days_the_courier_will_contact_you">Your order has been accepted and the courier will contact you soon.</string>
     <string name="back_to_the_home_page">Back to the home page</string>
     <string name="delete">Delete</string>
 
@@ -115,9 +115,11 @@
     <string name="go_to_manager_page">MANAGER</string>
     <string name="make_a_new_account">Make a new account</string>
     <string name="go_to_admin_page">ADMIN</string>
+    <string name="approve_order">Please wait for a manager to approve your order.</string>
     <string name="create_an_admin_account">Create an admin account</string>
     <string name="user_page">User Page</string>
     <string name="manager_page">Manager Page</string>
+
 
 
 </resources>
