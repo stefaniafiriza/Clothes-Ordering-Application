@@ -13,9 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
-import com.example.clothesorderingapplication.HomeActivity;
 import com.example.clothesorderingapplication.R;
-import com.example.clothesorderingapplication.ShopBasketActivity;
+
 import com.example.clothesorderingapplication.api.API;
 import com.example.clothesorderingapplication.api.interfaces.ICallback;
 
@@ -38,7 +37,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public ProductAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View contactView = inflater.inflate(R.layout.item_product_shopping_cart, parent, false);
+        View contactView = inflater.inflate(R.layout.cart_items, parent, false);
 
         return new ViewHolder(contactView);
     }
@@ -51,8 +50,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         TextView textView = holder.nameTextView;
         textView.setText(product.getName());
         Button button = holder.deleteButton;
-        button.setText("Delete");
         button.setEnabled(true);
+
+        holder.price.setText(product.getPrice() + "€");
+        holder.quantity.setText(amount.get(position) + "");
         final API api = new API(this.con);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +103,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
         public TextView nameTextView;
+        public TextView quantity;
+        public TextView price;
         public Button deleteButton;
 
         // We also create a constructor that accepts the entire item row
@@ -110,9 +113,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
-
-            nameTextView =  itemView.findViewById(R.id.product_name);
-            deleteButton =  itemView.findViewById(R.id.delete_button);
+            nameTextView = (TextView) itemView.findViewById(R.id.cart_product_name);
+            quantity = (TextView) itemView.findViewById(R.id.cart_product_quantity);
+            price = (TextView) itemView.findViewById(R.id.cart_product_price);
+            deleteButton = (Button) itemView.findViewById(R.id.delete_button);
         }
     }
 }
