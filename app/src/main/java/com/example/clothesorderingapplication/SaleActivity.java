@@ -10,16 +10,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clothesorderingapplication.data.SaleAdapter;
 import com.example.clothesorderingapplication.data.Product;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class SaleActivity extends AppCompatActivity {
 
