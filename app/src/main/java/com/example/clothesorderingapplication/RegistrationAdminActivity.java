@@ -93,7 +93,7 @@ public class RegistrationAdminActivity extends AppCompatActivity {
                                         String type = resp.getJSONObject("result").getString("type");
                                         if (type.equals("error")) {
                                             // error
-                                            return;
+                                            loadingBar.dismiss();
                                         } else {
                                             // successful
                                             Toast.makeText(RegistrationAdminActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
