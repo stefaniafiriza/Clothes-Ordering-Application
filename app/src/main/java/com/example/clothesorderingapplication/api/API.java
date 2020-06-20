@@ -36,6 +36,7 @@ public class API {
         StringBuilder str = new StringBuilder("?");
         str.append("key=").append(Utils.api_key).append("&");
         for (int i = 0; i < parametersNames.length; i++) {
+            parameters[i] = parameters[i].replaceAll(" ", "%20");
             str.append(parametersNames[i]).append("=").append(parameters[i]).append("&");
         }
         str.deleteCharAt(str.length() - 1);

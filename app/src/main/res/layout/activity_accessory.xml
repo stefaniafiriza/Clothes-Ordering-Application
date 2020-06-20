@@ -50,6 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/search2"
-        app:layout_constraintTop_toBottomOf="@+id/l2" />
+        app:layout_constraintTop_toBottomOf="@+id/l2"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
