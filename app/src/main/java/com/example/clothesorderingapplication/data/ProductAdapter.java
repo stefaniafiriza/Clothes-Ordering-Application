@@ -111,8 +111,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            nameTextView = (TextView) itemView.findViewById(R.id.product_name);
-            deleteButton = (Button) itemView.findViewById(R.id.delete_button);
+            nameTextView =  itemView.findViewById(R.id.product_name);
+            deleteButton =  itemView.findViewById(R.id.delete_button);
         }
     }
 }
