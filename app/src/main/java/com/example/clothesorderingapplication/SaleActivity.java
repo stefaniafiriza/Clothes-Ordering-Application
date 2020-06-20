@@ -2,19 +2,19 @@ package com.example.clothesorderingapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.example.clothesorderingapplication.data.SaleAdapter;
+import com.example.clothesorderingapplication.data.Product;
 
 public class SaleActivity extends AppCompatActivity {
 
@@ -22,42 +22,21 @@ public class SaleActivity extends AppCompatActivity {
     protected TextView badgeCounter;
     protected int basketItems = 0;
     protected int favoriteItems = 3;
-    protected ImageButton add1, add2, add3, add4, add5, add6, add7, add8, add9, add10, add11, add12, add13, add14, add15, add16;
-    protected ArrayList<ImageButton> addButton = new ArrayList<>();
+    protected RecyclerView recyclerView;
+    protected RecyclerView.LayoutManager layoutManager;
+    final SaleAdapter saleAdapter = new SaleAdapter(Product.products, this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sale);
 
-        add1 = findViewById(R.id.add39);
-        add2 = findViewById(R.id.add40);
-        add3 = findViewById(R.id.add41);
-        add4 = findViewById(R.id.add42);
-        add5 = findViewById(R.id.add43);
-        add6 = findViewById(R.id.add44);
-        add7 = findViewById(R.id.add45);
-        add8 = findViewById(R.id.add46);
-        add9 = findViewById(R.id.add48);
-        add10 = findViewById(R.id.add49);
-        add11 = findViewById(R.id.add50);
-        add12 = findViewById(R.id.add51);
-        add13 = findViewById(R.id.add52);
-        add14 = findViewById(R.id.add53);
-        add15 = findViewById(R.id.add54);
-        add16 = findViewById(R.id.add55);
-
-        List<ImageButton> allButton = Arrays.asList(add1, add2, add3, add4, add5, add6, add7, add8, add9, add10, add11, add12, add13, add14, add15, add16);
-        addButton.addAll(allButton);
-
-        for (ImageButton current : addButton) {
-            current.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(), "Added to shopping basket", Toast.LENGTH_LONG).show();
-                }
-            });
-        }
+        recyclerView = findViewById(R.id.acc_list);
+        recyclerView.setHasFixedSize(false);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(saleAdapter);
     }
 
     @Override

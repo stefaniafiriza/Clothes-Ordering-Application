@@ -38,7 +38,7 @@
 
         <TextView
             android:id="@+id/cart_product_price"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cart_product_quantity"
             android:layout_marginTop="10dp"
@@ -49,7 +49,16 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cart_product_quantity"
+            android:layout_toEndOf="@+id/cart_product_price"
+            android:text="@string/delete"
 
+
+            />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
