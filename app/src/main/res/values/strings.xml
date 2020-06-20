@@ -103,6 +103,12 @@
     <string name="order5">order5</string>
     <string name="order6">order6</string>
     <string name="order2">order2</string>
+    <string name="save">Save</string>
+    <string name="description">Description</string>
+    <string name="stock">Stock</string>
+    <string name="price">Price</string>
+    <string name="size">Size</string>
+    <string name="type">Type</string>
 
 
 </resources>

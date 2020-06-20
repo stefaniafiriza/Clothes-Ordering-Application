@@ -158,4 +158,11 @@ public class API {
         String url = createURL("/api/deleteProduct", parametersToURL(new String[]{"name"}, new String[]{productName}));
         call(url, deleteProductCallback);
     }
+
+    public void editProduct(String id, String name, String type, String size, String price, String stock, String description,final ICallback editProductCallback){
+        String url = createURL("/api/editProduct", parametersToURL(
+                new String[]{"id","name", "type", "size", "price", "stock", "description"},
+                new String[]{id,name, type, size, price, stock, description}));
+        call(url, editProductCallback);
+    }
 }

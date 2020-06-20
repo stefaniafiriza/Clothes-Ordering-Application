@@ -1,29 +1,48 @@
 package com.example.clothesorderingapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
+import com.example.clothesorderingapplication.api.API;
+import com.example.clothesorderingapplication.api.interfaces.ICallback;
+import com.example.clothesorderingapplication.data.ManagerAdapter;
+import com.example.clothesorderingapplication.data.Product;
+
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 
 public class ManagerActivity extends AppCompatActivity {
 
-    protected ImageButton[] addBtn = new ImageButton[55];
-    protected ImageButton[] removeBnt = new ImageButton[55];
-    protected ArrayList<ImageButton> addButton = new ArrayList<>();
-    protected ArrayList<ImageButton> removeButton = new ArrayList<>();
+
     protected MenuItem menuLogOut;
     protected Button managerItem, managerOrder;
     protected Button[] accept = new Button[6];
     protected ArrayList<Button> Accept = new ArrayList<>();
+    protected RecyclerView recyclerView;
+    protected RecyclerView.LayoutManager layoutManager;
+    protected ProgressDialog loadingBar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,146 +50,60 @@ public class ManagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_manager);
 
         managerItem = findViewById(R.id.manager_items);
+
+        loadingBar = new ProgressDialog(this);
+        loadingBar.setTitle("Update products.");
+        loadingBar.setMessage("Please wait, while we're retrieving the products.");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
+
+        final API api = new API(this);
+
+        api.getProducts(new ICallback() {
+            @Override
+            public void onFinish(String response, Context context) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    Product.products.clear();
+                    for(int i =0; i < jsonArray.length(); i ++){
+                        Product.products.add(Product.fromJSONObject(jsonArray.getJSONObject(i)));
+                    }
+                    loadingBar.dismiss();
+                    return;
+                } catch (JSONException e) {
+                    loadingBar.dismiss();
+                    e.printStackTrace();
+                }
+
+                Toast.makeText(ManagerActivity.this,"Failed to retrieve products from the server.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(VolleyError error, Context context) {
+
+            }
+        });
+
         managerOrder = findViewById(R.id.manager_orders);
 
         managerItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final ManagerAdapter managerAdapter = new ManagerAdapter(Product.products, v.getContext());
                 setContentView(R.layout.manager_items);
+                recyclerView = findViewById(R.id.manager_list);
+                recyclerView.setHasFixedSize(false);
+                layoutManager = new LinearLayoutManager(v.getContext());
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerView.setAdapter(managerAdapter);
 
-                addBtn[0] = findViewById(R.id.manager_add1);
-                addBtn[1] = findViewById(R.id.manager_add2);
-                addBtn[2] = findViewById(R.id.manager_add3);
-                addBtn[3] = findViewById(R.id.manager_add4);
-                addBtn[4] = findViewById(R.id.manager_add5);
-                addBtn[5] = findViewById(R.id.manager_add6);
-                addBtn[6] = findViewById(R.id.manager_add7);
-                addBtn[7] = findViewById(R.id.manager_add8);
-                addBtn[8] = findViewById(R.id.manager_add9);
-                addBtn[9] = findViewById(R.id.manager_add10);
-                addBtn[10] = findViewById(R.id.manager_add11);
-                addBtn[11] = findViewById(R.id.manager_add12);
-                addBtn[12] = findViewById(R.id.manager_add13);
-                addBtn[13] = findViewById(R.id.manager_add14);
-                addBtn[14] = findViewById(R.id.manager_add15);
-                addBtn[15] = findViewById(R.id.manager_add16);
-                addBtn[16] = findViewById(R.id.manager_add17);
-                addBtn[17] = findViewById(R.id.manager_add18);
-                addBtn[18] = findViewById(R.id.manager_add19);
-                addBtn[19] = findViewById(R.id.manager_add20);
-                addBtn[20] = findViewById(R.id.manager_add21);
-                addBtn[21] = findViewById(R.id.manager_add22);
-                addBtn[22] = findViewById(R.id.manager_add23);
-                addBtn[23] = findViewById(R.id.manager_add24);
-                addBtn[24] = findViewById(R.id.manager_add25);
-                addBtn[25] = findViewById(R.id.manager_add26);
-                addBtn[26] = findViewById(R.id.manager_add27);
-                addBtn[27] = findViewById(R.id.manager_add28);
-                addBtn[28] = findViewById(R.id.manager_add29);
-                addBtn[29] = findViewById(R.id.manager_add30);
-                addBtn[30] = findViewById(R.id.manager_add31);
-                addBtn[31] = findViewById(R.id.manager_add32);
-                addBtn[32] = findViewById(R.id.manager_add33);
-                addBtn[33] = findViewById(R.id.manager_add34);
-                addBtn[34] = findViewById(R.id.manager_add35);
-                addBtn[35] = findViewById(R.id.manager_add36);
-                addBtn[36] = findViewById(R.id.manager_add37);
-                addBtn[37] = findViewById(R.id.manager_add38);
-                addBtn[38] = findViewById(R.id.manager_add39);
-                addBtn[39] = findViewById(R.id.manager_add40);
-                addBtn[40] = findViewById(R.id.manager_add41);
-                addBtn[41] = findViewById(R.id.manager_add42);
-                addBtn[42] = findViewById(R.id.manager_add43);
-                addBtn[43] = findViewById(R.id.manager_add44);
-                addBtn[44] = findViewById(R.id.manager_add45);
-                addBtn[45] = findViewById(R.id.manager_add46);
-                addBtn[46] = findViewById(R.id.manager_add47);
-                addBtn[47] = findViewById(R.id.manager_add48);
-                addBtn[48] = findViewById(R.id.manager_add49);
-                addBtn[49] = findViewById(R.id.manager_add50);
-                addBtn[50] = findViewById(R.id.manager_add51);
-                addBtn[51] = findViewById(R.id.manager_add52);
-                addBtn[52] = findViewById(R.id.manager_add53);
-                addBtn[53] = findViewById(R.id.manager_add54);
-                addBtn[54] = findViewById(R.id.manager_add55);
-
-                Collections.addAll(addButton, addBtn);
-
-                for (ImageButton current : addButton) {
-                    current.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getApplicationContext(), "Another product has been added", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-
-                removeBnt[0] = findViewById(R.id.manager_remove1);
-                removeBnt[1] = findViewById(R.id.manager_remove2);
-                removeBnt[2] = findViewById(R.id.manager_remove3);
-                removeBnt[3] = findViewById(R.id.manager_remove4);
-                removeBnt[4] = findViewById(R.id.manager_remove5);
-                removeBnt[5] = findViewById(R.id.manager_remove6);
-                removeBnt[6] = findViewById(R.id.manager_remove7);
-                removeBnt[7] = findViewById(R.id.manager_remove8);
-                removeBnt[8] = findViewById(R.id.manager_remove9);
-                removeBnt[9] = findViewById(R.id.manager_remove10);
-                removeBnt[10] = findViewById(R.id.manager_remove11);
-                removeBnt[11] = findViewById(R.id.manager_remove12);
-                removeBnt[12] = findViewById(R.id.manager_remove13);
-                removeBnt[13] = findViewById(R.id.manager_remove14);
-                removeBnt[14] = findViewById(R.id.manager_remove15);
-                removeBnt[15] = findViewById(R.id.manager_remove16);
-                removeBnt[16] = findViewById(R.id.manager_remove17);
-                removeBnt[17] = findViewById(R.id.manager_remove18);
-                removeBnt[18] = findViewById(R.id.manager_remove19);
-                removeBnt[19] = findViewById(R.id.manager_remove20);
-                removeBnt[20] = findViewById(R.id.manager_remove21);
-                removeBnt[21] = findViewById(R.id.manager_remove22);
-                removeBnt[22] = findViewById(R.id.manager_remove23);
-                removeBnt[23] = findViewById(R.id.manager_remove24);
-                removeBnt[24] = findViewById(R.id.manager_remove25);
-                removeBnt[25] = findViewById(R.id.manager_remove26);
-                removeBnt[26] = findViewById(R.id.manager_remove27);
-                removeBnt[27] = findViewById(R.id.manager_remove28);
-                removeBnt[28] = findViewById(R.id.manager_remove29);
-                removeBnt[29] = findViewById(R.id.manager_remove30);
-                removeBnt[30] = findViewById(R.id.manager_remove31);
-                removeBnt[31] = findViewById(R.id.manager_remove32);
-                removeBnt[32] = findViewById(R.id.manager_remove33);
-                removeBnt[33] = findViewById(R.id.manager_remove34);
-                removeBnt[34] = findViewById(R.id.manager_remove35);
-                removeBnt[35] = findViewById(R.id.manager_remove36);
-                removeBnt[36] = findViewById(R.id.manager_remove37);
-                removeBnt[37] = findViewById(R.id.manager_remove38);
-                removeBnt[38] = findViewById(R.id.manager_remove39);
-                removeBnt[39] = findViewById(R.id.manager_remove40);
-                removeBnt[40] = findViewById(R.id.manager_remove41);
-                removeBnt[41] = findViewById(R.id.manager_remove42);
-                removeBnt[42] = findViewById(R.id.manager_remove43);
-                removeBnt[43] = findViewById(R.id.manager_remove44);
-                removeBnt[44] = findViewById(R.id.manager_remove45);
-                removeBnt[45] = findViewById(R.id.manager_remove46);
-                removeBnt[46] = findViewById(R.id.manager_remove47);
-                removeBnt[47] = findViewById(R.id.manager_remove48);
-                removeBnt[48] = findViewById(R.id.manager_remove49);
-                removeBnt[49] = findViewById(R.id.manager_remove50);
-                removeBnt[50] = findViewById(R.id.manager_remove51);
-                removeBnt[51] = findViewById(R.id.manager_remove52);
-                removeBnt[52] = findViewById(R.id.manager_remove53);
-                removeBnt[53] = findViewById(R.id.manager_remove54);
-                removeBnt[54] = findViewById(R.id.manager_remove55);
-
-                Collections.addAll(removeButton, removeBnt);
-
-                for (ImageButton current : removeButton) {
-                    current.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getApplicationContext(), "A product has been removed", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
+                ImageButton add_new_product = findViewById(R.id.add_product);
+                add_new_product.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        edit(api);
+                    }
+                });
             }
         });
 
@@ -199,8 +132,42 @@ public class ManagerActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
+    public void edit(final API api){
+        setContentView(R.layout.edit_product);
+        final EditText name, type, size, price, stock, desc;
+
+        name = findViewById(R.id.name_edit);
+        type = findViewById(R.id.type_edit);
+        size = findViewById(R.id.size_edit);
+        price = findViewById(R.id.price_edit);
+        stock = findViewById(R.id.stock_edit);
+        desc = findViewById(R.id.description_edit);
+        Button save = findViewById(R.id.save_man);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                api.addProduct(name.getText().toString(), type.getText().toString(),
+                        size.getText().toString(), price.getText().toString(),
+                        stock.getText().toString(), desc.getText().toString(), new ICallback() {
+                            @Override
+                            public void onFinish(String response, Context context) {
+                                if(response.contains("error")){
+                                    Toast.makeText( context, "Could not add the item to the database.", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText( context, "Added the item in the database.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onError(VolleyError error, Context context) {
+                                Toast.makeText( context, "Could not add the item to the database.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        });
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
