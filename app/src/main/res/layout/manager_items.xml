@@ -21,27 +21,27 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.023" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/manager_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-
-        app:layout_constraintTop_toBottomOf="@+id/text"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"/>
-
     <ImageButton
         android:id="@+id/add_product"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bnt_bg_white"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-
         android:contentDescription="@string/todo14"
+        android:paddingBottom="10dp"
+
         android:src="@drawable/ic_add_black"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/manager_list"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:layout_below="@+id/text"
+        android:layout_marginStart="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
