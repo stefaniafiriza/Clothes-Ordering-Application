@@ -36,6 +36,7 @@ public class API {
         StringBuilder str = new StringBuilder("?");
         str.append("key=").append(Utils.api_key).append("&");
         for (int i = 0; i < parametersNames.length; i++) {
+            parameters[i] = parameters[i].replaceAll(" ", "%20");
             str.append(parametersNames[i]).append("=").append(parameters[i]).append("&");
         }
         str.deleteCharAt(str.length() - 1);
@@ -172,9 +173,12 @@ public class API {
                 new String[]{id,name, type, size, price, stock, description}));
         call(url, editProductCallback);
     }
-
     public void toggleAddToCart(final ICallback toggleAddToCartCallback) {
         String url = createURL("/api/toggleAddToCart", parametersToURL(new String[]{}, new String[]{}));
         call(url, toggleAddToCartCallback);
+    }
+    public void getOrders(final ICallback getOrdersCallback) {
+        String url = createURL("/api/getOrders", parametersToURL(new String[]{}, new String[]{}));
+        call(url, getOrdersCallback);
     }
 }
